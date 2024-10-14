@@ -132,6 +132,7 @@ connector-client/client-application/app-starter/database
 connector-client/client-librairies/client-libs-scheduler/.project
 connector-client/client-application/client-app-ui/*.log
 client-application/**/src/main/frontend/
+client-application/**/src/main/bundles/
 
 .node_modules/
 **node/
