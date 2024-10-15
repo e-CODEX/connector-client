@@ -1,6 +1,6 @@
 FROM maven:3.9-eclipse-temurin-21 AS build
 # Build the app
-WORKDIR /app
+WORKDIR /build
 COPY . .
 RUN mvn clean install -Pproduction -DskipTests
 
@@ -13,7 +13,7 @@ LABEL description="e-CODEX connector"
 ARG USERNAME=connector-client
 ARG USER_GROUP=${USERNAME}
 ARG BASE_PATH=/app
-ARG BUILD_OUTPUT_FOLDER=/app/client-application/target/connector-client-standalone
+ARG BUILD_OUTPUT_FOLDER=/build/client-application/target/connector-client-standalone
 
 WORKDIR ${BASE_PATH}
 
