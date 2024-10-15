@@ -161,92 +161,11 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <plugin>
-                        <groupId>com.google.cloud.tools</groupId>
-                        <artifactId>jib-maven-plugin</artifactId>
-                        <configuration>
-                            <skip>false</skip>
-                            <from>
-                                <image>
-                                    default-route-openshift-image-registry.apps.a2.cp.cna.at/openshift/java:openjdk-8-ubi8
-                                </image>
-                            </from>
-                            <to>
-                                <image>
-                                    default-route-openshift-image-registry.apps.a2.cp.cna.at/ju-eu-ejustice-eqs/dc-connector-client
-                                </image>
-                            </to>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.eclipse.jkube</groupId>
-                        <artifactId>openshift-maven-plugin</artifactId>
-                        <configuration>
-                            <skip>false</skip>
-                            <buildStrategy>docker</buildStrategy>
-                            <resources>
-                                <openshiftBuildConfig>
-                                    <requests>
-                                        <cpu>200m</cpu>
-                                        <memory>256Mi</memory>
-                                    </requests>
-                                    <limits>
-                                        <cpu>1000m</cpu>
-                                        <memory>1Gi</memory>
-                                    </limits>
-                                </openshiftBuildConfig>
-                            </resources>
-                            <images>
-                                <image>
-                                    <name>dc-connector-client</name>
-                                    <build>
-                                        <tags>
-                                            <tag>4.4.x</tag>
-                                            <tag>latest</tag>
-                                            <tag>${project.version}</tag>
-                                        </tags>
-                                        <dockerFile>Dockerfile</dockerFile>
-                                        <fromExt>
-                                            <name>java:openjdk-8-ubi8</name>
-                                            <kind>ImageStreamTag</kind>
-                                            <namespace>openshift</namespace>
-                                        </fromExt>
-                                        <assembly>
-                                            <name>connector_client_assembly</name>
-                                            <mode>dir</mode>
-                                            <targetDir>app</targetDir>
-                                            <excludeFinalOutputArtifact>true</excludeFinalOutputArtifact>
-                                            <layers>
-                                                <layer>
-                                                    <id>connector-client-war</id>
-                                                    <files>
-                                                        <file>
-                                                            <source>
-                                                                ${project.basedir}/target/${project.build.finalName}
-                                                            </source>
-                                                            <outputDirectory>./</outputDirectory>
-                                                            <destName>connector-client.war</destName>
-                                                        </file>
-                                                    </files>
-                                                </layer>
-                                            </layers>
-                                        </assembly>
-                                    </build>
-                                </image>
-                            </images>
-                        </configuration>
-                    </plugin>
                 </plugins>
             </build>
             <properties>
                 <vaadin.productionMode>true</vaadin.productionMode>
             </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-server-production-mode</artifactId>
-                </dependency>
-            </dependencies>
         </profile>
     </profiles>
 </project>

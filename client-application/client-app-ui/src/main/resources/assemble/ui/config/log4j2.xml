@@ -8,16 +8,16 @@
         <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xEx{full}</Property>
         <Property name="LOG_LEVEL_PATTERN">%5p</Property>
         <Property name="LOG_DATEFORMAT_PATTERN">yyyy-MM-dd HH:mm:ss.SSS</Property>
-        <Property name="CONN_CONSOLE_LOG_PATTERN">%style{%d{${LOG_DATEFORMAT_PATTERN}}}{faint}
-            %highlight{${LOG_LEVEL_PATTERN}} %style{${sys:PID}}{magenta} %clr{---}{faint} %style{%-40.40c{1.}}{cyan}
-            %clr{:}{faint} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD_COLOR}
+        <Property name="CONN_CONSOLE_LOG_PATTERN">%style{%d{${LOG_DATEFORMAT_PATTERN}}}{red}
+            %highlight{${LOG_LEVEL_PATTERN}} %style{${sys:PID}}{magenta} %clr{---}{red} %style{%-40.40c{1.}}{cyan}
+            %clr{:}{red} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD_COLOR}
         </Property>
         <Property name="DEBUG_CONN_FILE_LOG_PATTERN">%d{${LOG_DATEFORMAT_PATTERN}} ${LOG_LEVEL_PATTERN} ${sys:PID} ---
             %40.-40location--- [tid=%64.-64X{messageid}] [%t] %-40.40c{1.} : %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}
         </Property>
-        <Property name="NORMAL_CONN_FILE_LOG_PATTERN">%d{${LOG_DATEFORMAT_PATTERN}}}{faint}
-            %highlight{${LOG_LEVEL_PATTERN}} %style{${sys:PID}}{magenta} %clr{---}{faint} %style{%-40.40c{1.}}{cyan}
-            %clr{:}{faint} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}
+        <Property name="NORMAL_CONN_FILE_LOG_PATTERN">%d{${LOG_DATEFORMAT_PATTERN}}}{red}
+            %highlight{${LOG_LEVEL_PATTERN}} %style{${sys:PID}}{magenta} %clr{---}{red} %style{%-40.40c{1.}}{cyan}
+            %clr{:}{red} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}
         </Property>
         <Property name="CONN_FILE_LOG_PATTERN">${NORMAL_CONN_FILE_LOG_PATTERN}</Property>
     </Properties>
