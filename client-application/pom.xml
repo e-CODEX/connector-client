@@ -50,7 +50,6 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>connector-client</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -73,25 +72,6 @@
                             <dependencySourceExcludes>
                                 <dependencySourceExclude>org.springboot*</dependencySourceExclude>
                             </dependencySourceExcludes>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>create-distribution-package</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptors>
-                                <descriptor>src/main/assembly/assembleClientApplicationPackage.xml</descriptor>
-                                <descriptor>src/main/assembly/assembleClientWebappPackage.xml</descriptor>
-                            </descriptors>
                         </configuration>
                     </execution>
                 </executions>

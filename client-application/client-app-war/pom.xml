@@ -98,7 +98,6 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>connector-client</finalName>
         <plugins>
             <plugin>
                 <groupId>com.vaadin</groupId>
