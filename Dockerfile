@@ -29,6 +29,6 @@ RUN groupadd --system ${USER_GROUP} \
 
 USER ${USERNAME}
 
-EXPOSE 8081
+EXPOSE 9082
 
 ENTRYPOINT ["/app/start.sh"]
