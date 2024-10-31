@@ -1,35 +1,34 @@
-== Content of the domibusConnectorClientApplication-Standalone package
+== Content of the connector-client package
 
-After download and extraction of the "domibusConnectorClientApplication-Standalone.zip" file the extracted folder has the following content:
+After download and extraction of the "connector-client-distribution.zip" file the extracted folder has the following content:
 
-Diagram: domibusConnectorClientApplication-Standalone package content
-[#img-domibusConnectorClientApplicationStandalonePackageContent]
+Diagram: connector-client package content
+[#img-connector-client-distribution-standalone-content]
 [link=../images/packagecontent_standalone.png,window=_tab]
-image::../images/packagecontent_standalone.png[domibusConnectorClientApplicationStandalonePackageContent,300,200]
+image::../images/packagecontent_standalone.png[connector-client-distribution standalone content,300,200]
 
-=== startConnectorClient scripts
+=== standalone scripts
+Scripts for launching the standalone application are located in the *standalone* folder after extraction:
 
-* *startConnectorClient.bat*	-This file starts the domibusConnectorClient-Application in a MS-Windows environment. It checks, if the *JAVA_HOME* environment variable is set, sets the *classpath* environment variable to */bin* and */lib* and starts the application.
-* *startConnectorClient.sh*		-This file starts the domibusConnectorClient-Application in a UNIX based environment (linux and other derivates). It demands as a precondition that JAVA is properly configured, the JAVA executable is on the *PATH* environment variable, sets the *classpath* environment variable to */bin* and */lib* and starts the application.
+* *start.bat* -This file starts the connector-client application in an MS-Windows environment. It checks, if the *JAVA_HOME* environment variable is set, sets the *classpath* environment variable to */bin* and */lib* and starts the application.
+* *start.sh* -This file starts the connector-client application in a UNIX based environment (linux and other derivatives). It demands as a precondition that JAVA is properly configured, the JAVA executable is on the *PATH* environment variable, sets the *classpath* environment variable to */bin* and */lib* and starts the application.
 
 
 === config folder
 This folder contains the following files:
 
-* *connector-client.properties*	- properties file containing the most essential properties for the domibusConnectorClient-Application as examples. For further details, please refer to the link:../config_guide.html[configuration guide].
-* *log4j2.xml*					- XML file defining the logging. It is preconfigured so that LOG files will be put in the "logs" subfolder.
+* *connector-client.properties*	- properties file containing the most essential properties for the connector-client application as examples. For further details, please refer to the link:../config_guide.html[configuration guide].
+* *log4j2.xml* - XML file defining the logging. It is preconfigured so that LOG files will be put in the "logs" subfolder.
 
 === database folder
-Using the standard configuration deliverd with this package, this subfolder will contain the embedded database for the domibusConnectorClient-Application. Though empty, the database files will be created at first startup. 
+Using the standard configuration delivered with this package, this subfolder will contain the embedded database for the connector-client application. Though empty, the database files will be created at first startup.
 
-=== documentation folder
-Holds this site documentation.
 
 === lib folder
-This folder is part of the *classpath* configured in the startup scripts described above. If your domibusConnectorClient-Application requires other libraries than those delivered, they can be placed here.
+This folder is part of the *classpath* configured in the startup scripts described above. If your connector-client application requires other libraries than those delivered, they can be placed here.
 
 === logs folder
 Empty folder prepared for log files that will be generated. Only relevant, when using the standard configuration.
 
 === messages folder
-Also empty in the beginning. Messages that will be received by the domibusConnectorClient, or generated using the domibusConnectorClient will be stored here. In the standard configuration this is the storage used by the domibusConnectorClientFSStorage.
+Also empty in the beginning. Messages that will be received by the connector-client, or generated using the connector-client will be stored here. In the standard configuration this is the storage used by the client-app-fs-storage.
