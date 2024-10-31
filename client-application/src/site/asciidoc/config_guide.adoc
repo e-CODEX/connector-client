@@ -1,23 +1,23 @@
-== Configuration guilde for the domibusConnectorClient
+== Configuration guide for the connector-client
 
-This page describes what properties must/can be set for the domibusConnectorClient-Application.
+This page describes what properties must/can be set for the client-application.
 For some, there are default values set within the classpath that may be overridden in the configuration.
 
-=== Configuration from the domibusConnectorClient-Libraries
+=== Configuration from the client-libraries
 The properties listed are necessary for the underlying libraries:
 
 [source,properties]
 ----
 
-############# domibusConnectorClientWSLink ##############
+############# client-libs-ws-link ##############
 
-#Address where the domibusConnectorClient reaches the domibusConnector
+#Address where the connector-client reaches the ecodex-connector
 connector-client.connector-link.ws.connectorAddress=http://<url>:<port>/<contextpath>
 
-#Name of the alias of the key that the domibusConnectorClient shall encrypt messages to the connector with
+#Name of the alias of the key that the connector-client shall encrypt messages to the connector with
 connector-client.connector-link.ws.cxf.encryptAlias=
 
-#boolean property to indicate wether the domibusConnector can push messages to the client.
+#boolean property to indicate weather the ecodex-connector can push messages to the client.
 connector-client.connector-link.ws.pushEnabled=false
 
 #properties to configure the keystore. Must contain the private key the client uses to sign/decrypt messages
@@ -26,21 +26,21 @@ connector-client.connector-link.ws.cxf.keyStore.password=
 connector-client.connector-link.ws.cxf.privateKey.alias=
 connector-client.connector-link.ws.cxf.privateKey.password=
 
-#properties to configure the truststore. Must contain the certificate of the domibusConnector with which the client encrypts messages with
+#properties to configure the truststore. Must contain the certificate of the ecodex-connector with which the client encrypts messages with
 connector-client.connector-link.ws.cxf.trustStore.path=file:<full path to the truststore>
 connector-client.connector-link.ws.cxf.trustStore.password=
 
 
-############# domibusConnectorClientLibrary ##############
+############# client-lib-library ##############
 
 #If the interfaces for schema validation are implemented, this property defines at which state of result the message should be declined.
 #Possible values are FATAL_ERROR, ERROR, WARNING
 connector-client.library.schemaValidationMaxSeverityLevel=
 
 
-############# domibusConnectorClientScheduler ##############
+############# client-libs-scheduler ##############
 
-#properties to configure the time-triggered job to get messages from the domibusConnector. Not necessary if client is configured as pushEnabled.
+#properties to configure the time-triggered job to get messages from the ecodex-connector. Not necessary if client is configured as pushEnabled.
 connector-client.scheduler.get-messages-from-connector-job.enabled=false
 connector-client.scheduler.get-messages-from-connector-job.repeatInterval=30s
 
@@ -52,7 +52,7 @@ connector-client.scheduler.submit-messages-to-connector-job.repeatInterval=30s
 
 ----
 
-=== Configuration properties for the domibusConnectorClientFSStorage
+=== Configuration properties for the client-app-fs-storage
 
 Default properties for the filesystem storage:
 
@@ -93,7 +93,7 @@ connector-client.storage.filesystem.properties.attachmentIdPrefix=attachment_
 ----
 
 
-=== Configuration properties for the domibusConnectorClientController
+=== Configuration properties for the client-app-controller
 
 Default properties for the controller:
 
@@ -109,7 +109,7 @@ connector-client.controller.confirmationDefaultAction.retrievalNonRetrievalToRec
 connector-client.controller.update-storage-status-job.enabled=true
 connector-client.controller.update-storage-status-job.repeatInterval=1m
 
-#If the domibusConnectorClient-Application is without a backend, it needs to trigger confirmations time-triggered.
+#If the client-application is without a backend, it needs to trigger confirmations time-triggered.
 connector-client.controller.auto-confirm-messages-job.enabled=false
 connector-client.controller.auto-confirm-messages-job.repeatInterval=1m
 
@@ -121,7 +121,7 @@ connector-client.controller.delivery-rest-client.deliverNewMessageMethodUrl=/del
 connector-client.controller.delivery-rest-client.deliverNewConfirmationMethodUrl=/deliverNewConfirmationFromConnectorClientToBackend
 ----
 
-=== Configuration properties for the domibusConnectorClientStarter
+=== Configuration properties for the client-app-starter
 
 The properties for the starter are mostly spring properties. Default properties for the starter:
 
@@ -146,7 +146,7 @@ spring.jpa.hibernate.ddl-auto = update
 org.springframework.boot.logging.LoggingSystem=Log4J2
 ----
 
-=== Configuration properties for the domibusConnectorClientUI
+=== Configuration properties for the client-app-ui
 
 The properties for the UI are only 2 to set:
 
@@ -156,6 +156,6 @@ connector-client-rest-url=http://<url>:<port>/restservice
 spring.codec.max-in-memory-size=20MB
 ----
 
-For the connector-client-rest-url the parts url and port must reference the client application self. In most cases this will be the standard value "localhost" and "8080". If the "server.port" of the connectorClient application is set, this port then must be used.
+For the connector-client-rest-url the parts url and port must reference the client application self. In most cases this will be the standard value "localhost" and "8080". If the "server.port" of the connector-client application is set, this port then must be used.
 
 The second property is for spring to know the limit of data transferred within one single request between the UI and the applications rest service.

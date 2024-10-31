@@ -17,7 +17,7 @@
             </includes>
         </fileSet>
 
-        <!-- ==================== domibusConnectorClientLibsAPI ================= -->
+        <!-- ==================== client-libs-api ================= -->
         <fileSet>
             <directory>${project.basedir}/client-libs-api/target/</directory>
             <outputDirectory>client-libraries/client-libs-api</outputDirectory>
@@ -33,7 +33,7 @@
             </includes>
         </fileSet>
 
-        <!-- ==================== domibusConnectorClientLibrary ================= -->
+        <!-- ==================== client-libs-library ================= -->
 
         <fileSet>
             <directory>${project.basedir}/client-libs-library/target/</directory>
@@ -50,7 +50,7 @@
             </includes>
         </fileSet>
 
-        <!-- ==================== domibusConnectorClientScheduler ================= -->
+        <!-- ==================== client-libs-scheduler ================= -->
 
         <fileSet>
             <directory>${project.basedir}/client-libs-scheduler/target/</directory>
@@ -67,7 +67,7 @@
             </includes>
         </fileSet>
 
-        <!-- ==================== domibusConnectorClientWSLink ================= -->
+        <!-- ==================== client-libs-ws-link ================= -->
 
         <fileSet>
             <directory>${project.basedir}/client-libs-ws-link/target/</directory>

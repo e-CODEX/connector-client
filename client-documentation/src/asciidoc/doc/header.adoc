@@ -1,5 +1,5 @@
 ifndef::basepath[]
-:basepath: ../
+:basepath: ../../
 endif::basepath[]
 
 ifndef::header[]
