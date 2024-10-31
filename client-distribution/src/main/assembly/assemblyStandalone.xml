@@ -47,6 +47,10 @@
                 <exclude>*/**</exclude>
             </excludes>
         </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/../client-documentation/target/src/main/resources/standalone/config</directory>
+            <outputDirectory>standalone/config</outputDirectory>
+        </fileSet>
     </fileSets>
     <dependencySets>
         <dependencySet>

@@ -13,7 +13,7 @@ LABEL description="e-CODEX connector"
 ARG USERNAME=connector-client
 ARG USER_GROUP=${USERNAME}
 ARG BASE_PATH=/app
-ARG BUILD_OUTPUT_FOLDER=/app/client-distribution/target/connector-client/standalone
+ARG BUILD_OUTPUT_FOLDER=/app/client-distribution/target/connector-client-distribution/standalone
 
 WORKDIR ${BASE_PATH}
 

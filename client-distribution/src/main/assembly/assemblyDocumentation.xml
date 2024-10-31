@@ -1,0 +1,17 @@
+<assembly>
+    <id>documentation</id>
+    <formats>
+        <format>zip</format>
+         <format>dir</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory></outputDirectory>
+            <unpack>true</unpack>
+            <includes>
+                <include>${project.groupId}:client-documentation:zip:documentation:${project.version}</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+</assembly>

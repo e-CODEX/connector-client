@@ -23,9 +23,16 @@
             <version>${project.version}</version>
             <type>war</type>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>client-documentation</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+            <classifier>documentation</classifier>
+        </dependency>
     </dependencies>
     <build>
-        <finalName>connector-client</finalName>
+        <finalName>connector-client-distribution</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -42,6 +49,7 @@
                             <descriptors>
                                 <descriptor>src/main/assembly/assemblyStandalone.xml</descriptor>
                                 <descriptor>src/main/assembly/assemblyDeployable.xml</descriptor>
+                                <descriptor>src/main/assembly/assemblyDocumentation.xml</descriptor>
                             </descriptors>
                         </configuration>
                     </execution>

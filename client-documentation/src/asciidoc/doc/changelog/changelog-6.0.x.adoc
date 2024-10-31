@@ -1,0 +1,10 @@
+
+== Changelog for ecodex-connector-client-6.0.x
+
+=== 6.0.0
+
+* adds support for java 21.
+* adds support for spring boot 3.x.x series
+* update libraries to their latest version.
+* adds a distribution module for a better application distribution.
+* rename packages

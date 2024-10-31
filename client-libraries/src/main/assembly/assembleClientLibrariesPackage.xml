@@ -1,5 +1,5 @@
 <assembly>
-    <id>Libraries</id>
+    <id>libraries</id>
     <formats>
         <format>zip</format>
         <format>dir</format>
@@ -11,73 +11,73 @@
         <!-- ==================== domibusConnectorAPI ================= -->
         <fileSet>
             <directory>${project.basedir}/client-libs-api/target/lib/</directory>
-            <outputDirectory>client-libraries/client-libs-api</outputDirectory>
+            <outputDirectory>client-libraries/domibusConnectorAPI</outputDirectory>
             <includes>
-                <include>client-libs-api*.jar</include>
+                <include>domibusConnectorAPI*.jar</include>
             </includes>
         </fileSet>
 
-        <!-- ==================== domibusConnectorClientLibsAPI ================= -->
+        <!-- ==================== client-libs-api ================= -->
         <fileSet>
-            <directory>${project.basedir}/client-libs-api/target/</directory>
+            <directory>${project.basedir}/client-libs-api/target</directory>
             <outputDirectory>client-libraries/client-libs-api</outputDirectory>
             <includes>
                 <include>*.jar</include>
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/client-libs-api/</directory>
+            <directory>${project.basedir}/client-libs-api</directory>
             <outputDirectory>client-libraries/client-libs-api</outputDirectory>
             <includes>
                 <include>pom.xml</include>
             </includes>
         </fileSet>
 
-        <!-- ==================== domibusConnectorClientLibrary ================= -->
+        <!-- ==================== client-libs-library ================= -->
 
         <fileSet>
-            <directory>${project.basedir}/client-libs-library/target/</directory>
+            <directory>${project.basedir}/client-libs-library/target</directory>
             <outputDirectory>client-libraries/client-libs-library</outputDirectory>
             <includes>
                 <include>*.jar</include>
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/client-libs-library/</directory>
+            <directory>${project.basedir}/client-libs-library</directory>
             <outputDirectory>client-libraries/client-libs-library</outputDirectory>
             <includes>
                 <include>pom.xml</include>
             </includes>
         </fileSet>
 
-        <!-- ==================== domibusConnectorClientScheduler ================= -->
+        <!-- ==================== client-libs-scheduler ================= -->
 
         <fileSet>
-            <directory>${project.basedir}/client-libs-scheduler/target/</directory>
+            <directory>${project.basedir}/client-libs-scheduler/target</directory>
             <outputDirectory>client-libraries/client-libs-scheduler</outputDirectory>
             <includes>
                 <include>*.jar</include>
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/client-libs-scheduler/</directory>
+            <directory>${project.basedir}/client-libs-scheduler</directory>
             <outputDirectory>client-libraries/client-libs-scheduler</outputDirectory>
             <includes>
                 <include>pom.xml</include>
             </includes>
         </fileSet>
 
-        <!-- ==================== domibusConnectorClientWSLink ================= -->
+        <!-- ==================== client-libs-ws-link ================= -->
 
         <fileSet>
-            <directory>${project.basedir}/client-libs-ws-link/target/</directory>
+            <directory>${project.basedir}/client-libs-ws-link/target</directory>
             <outputDirectory>client-libraries/client-libs-ws-link</outputDirectory>
             <includes>
                 <include>*.jar</include>
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/client-libs-ws-link/</directory>
+            <directory>${project.basedir}/client-libs-ws-link</directory>
             <outputDirectory>client-libraries/client-libs-ws-link</outputDirectory>
             <includes>
                 <include>pom.xml</include>
@@ -85,15 +85,19 @@
         </fileSet>
 
         <!-- ==================== Copying site documentation ================= -->
+<!--        <fileSet>-->
+<!--            <directory>${project.basedir}/target/site</directory>-->
+<!--            <outputDirectory>documentation/site</outputDirectory>-->
+<!--        </fileSet>-->
         <fileSet>
-            <directory>${project.basedir}/target/site</directory>
-            <outputDirectory>client-documentation/site</outputDirectory>
+            <directory>${project.basedir}/target/documentation-pdf</directory>
+            <outputDirectory>documentation/pdf</outputDirectory>
         </fileSet>
 
         <!-- ==================== Copying example properties ================= -->
         <fileSet>
             <directory>${project.basedir}/src/main/resources/libraries/properties</directory>
-            <outputDirectory>client-documentation/properties</outputDirectory>
+            <outputDirectory>documentation/properties</outputDirectory>
         </fileSet>
     </fileSets>
 </assembly>

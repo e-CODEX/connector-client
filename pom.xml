@@ -141,6 +141,9 @@
         <javax.xml.bind.jaxb-api.version>2.3.1</javax.xml.bind.jaxb-api.version>
         <javax.xml.ws.jaxws-api.version>2.3.1</javax.xml.ws.jaxws-api.version>
         <!--other-->
+        <asciidoctor.pdf.version>2.3.18</asciidoctor.pdf.version>
+        <asciidoctor.diagram.version>2.3.0</asciidoctor.diagram.version>
+        <asciidoctor.diagram-plantuml.version>1.2024.5</asciidoctor.diagram-plantuml.version>
         <ecodex.connector.version>6.0.0-SNAPSHOT</ecodex.connector.version>
         <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
         <h2.database.version>1.4.200</h2.database.version>
@@ -294,6 +297,11 @@
                 <artifactId>objenesis</artifactId>
                 <version>${objenesis.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctorj-pdf</artifactId>
+                <version>${asciidoctor.pdf.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -369,6 +377,12 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
                     <version>${maven.war-plugin.version}</version>
+                </plugin>
+                <!--asciidoctor-->
+                <plugin>
+                    <groupId>org.asciidoctor</groupId>
+                    <artifactId>asciidoctor-maven-plugin</artifactId>
+                    <version>${asciidoctor.plugin.version}</version>
                 </plugin>
                 <!--other-->
                 <plugin>
