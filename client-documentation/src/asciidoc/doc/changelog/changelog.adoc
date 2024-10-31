@@ -1,0 +1,17 @@
+
+ifndef::header[]
+include::../doc/header.adoc[]
+endif::header[]
+
+//disable section numbers in changelog
+// :sectnums!:
+
+== Changelog
+
+include::../doc/changelog/changelog-6.0.x.adoc[]
+include::../doc/changelog/changelog-4.4.x.adoc[]
+
+
+
+
+
