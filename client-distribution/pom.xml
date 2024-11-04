@@ -47,9 +47,7 @@
                         <configuration>
                             <appendAssemblyId>false</appendAssemblyId>
                             <descriptors>
-                                <descriptor>src/main/assembly/assemblyStandalone.xml</descriptor>
-                                <descriptor>src/main/assembly/assemblyDeployable.xml</descriptor>
-                                <descriptor>src/main/assembly/assemblyDocumentation.xml</descriptor>
+                                <descriptor>src/main/assembly/assembly.xml</descriptor>
                             </descriptors>
                         </configuration>
                     </execution>
