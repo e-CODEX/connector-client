@@ -1,6 +1,5 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="DomibusConnectorClientApplicationStarter" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-    <option name="ACTIVE_PROFILES" />
     <additionalParameters>
       <param>
         <option name="name" value="connector-client-rest-url" />
@@ -15,7 +14,7 @@
     </additionalParameters>
     <module name="client-app-starter" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="eu.ecodex.connector.client.starter.DomibusConnectorClientApplicationStarter" />
-    <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../../../ecodex-labhome-dev/labenv01/domibus-connector-client-application" />
+    <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
