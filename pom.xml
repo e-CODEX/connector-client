@@ -64,13 +64,6 @@
             <name>libs-snapshot</name>
             <url>https://scm.ecodex.eu/artifactory/libs-snapshot</url>
         </repository>
-        <repository>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>cxf-snapshots</id>
-            <url>https://repository.apache.org/content/groups/snapshots</url>
-        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -86,13 +79,6 @@
             <id>snapshots</id>
             <name>libs-snapshot</name>
             <url>https://scm.ecodex.eu/artifactory/libs-snapshot</url>
-        </pluginRepository>
-        <pluginRepository>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>cxf-snapshots</id>
-            <url>https://repository.apache.org/content/groups/snapshots</url>
         </pluginRepository>
     </pluginRepositories>
     <properties>
@@ -124,7 +110,7 @@
         <!--apache-->
         <apache.commons-io.version>2.16.1</apache.commons-io.version>
         <apache.commons-lang.version>2.6</apache.commons-lang.version>
-        <apache.cxf.version>4.1.0-SNAPSHOT</apache.cxf.version>
+        <apache.cxf.version>4.1.0</apache.cxf.version>
         <apache.log4j2.version>2.17.0</apache.log4j2.version>
         <!--jakarta-->
         <jakarta.activation-api.version>2.1.3</jakarta.activation-api.version>
