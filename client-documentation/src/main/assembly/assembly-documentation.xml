@@ -7,9 +7,35 @@
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
+    <!-- include pdf docs-->
         <fileSet>
-            <directory>${project.build.directory}/documentation-pdf</directory>
-            <outputDirectory>documentation/pdf</outputDirectory>
+            <directory>${project.build.directory}/documentation-pdf/changelog/changelog</directory>
+            <outputDirectory>pdf/changelog</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/../target/documentation-pdf</directory>
+            <outputDirectory>pdf/connector-client</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/../client-application/target/documentation-pdf</directory>
+            <outputDirectory>pdf/client-application</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/../client-libraries/target/documentation-pdf</directory>
+            <outputDirectory>pdf/client-librairies</outputDirectory>
+        </fileSet>
+        <!-- include pdf docs-->
+        <fileSet>
+            <directory>${project.basedir}/../target/site</directory>
+            <outputDirectory>html/connector-client</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/../client-application/target/site</directory>
+            <outputDirectory>html/client-application</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/../client-libraries/target/site</directory>
+            <outputDirectory>html/client-librairies</outputDirectory>
         </fileSet>
     </fileSets>
 </assembly>

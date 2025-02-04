@@ -26,8 +26,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * This interface is a public interface for the domibusConnectorClient-Application to be approached
- * from outside. It is used by the domibusConnectorClient-UI to connect to and exchange data with
+ * This interface is a public interface for the e-CODEX Connector Client Application to be
+ * approached from outside.
+ * It is used by the domibusConnectorClient-UI to connect to and exchange data with
  * the application.
  *
  * @author riederb
@@ -41,7 +42,7 @@ public interface DomibusConnectorClientRestAPI {
 
     /**
      * Method to receive all messages stored in the database of the
-     * domibusConnectorClient-Application.
+     * e-CODEX Connector Client Application.
      *
      * @return An object holding a List of message objects.
      */
@@ -49,7 +50,7 @@ public interface DomibusConnectorClientRestAPI {
     DomibusConnectorClientMessageList getAllMessages();
 
     /**
-     * Method to receive a certain message stored in the domibusConnectorClient-Application
+     * Method to receive a certain message stored in the e-CODEX Connector Client Application
      * database.
      *
      * @param id - the database id (technical key) of the message. Usually not used to display
@@ -62,7 +63,7 @@ public interface DomibusConnectorClientRestAPI {
         throws MessageNotFoundException;
 
     /**
-     * Method to receive a certain message stored in the domibusConnectorClient-Application
+     * Method to receive a certain message stored in the e-CODEX Connector Client Application
      * database.
      *
      * @param backendMessageId - the backend message id of the message.
@@ -75,7 +76,7 @@ public interface DomibusConnectorClientRestAPI {
         @RequestParam String backendMessageId) throws MessageNotFoundException;
 
     /**
-     * Method to receive a certain message stored in the domibusConnectorClient-Application
+     * Method to receive a certain message stored in the e-CODEX Connector Client Application
      * database.
      *
      * @param ebmsMessageId - the ebmsMessageId of the message.
@@ -159,7 +160,7 @@ public interface DomibusConnectorClientRestAPI {
 
     /**
      * Deletes a message. The message is deleted from the database of the
-     * domibusConnectorClient-Application. Also in the storage the message is deleted.
+     * e-CODEX Connector Client Application. Also in the storage the message is deleted.
      *
      * @param id - The database id (technical key) of the message to be deleted.
      * @return A Boolean representing if the operation was successful.
