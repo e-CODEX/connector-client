@@ -2,10 +2,10 @@
 
 After download and extraction of the "connector-client-distribution.zip" file the extracted folder has the following content:
 
-Diagram: connector-client-distribution deployable package content
+Diagram : connector-client-distribution deployable package content
 [#img-connector-client-distribution-deployable-content]
-[link=../images/packagecontent_webapp.png,window=_tab]
-image::../images/packagecontent_webapp.png[connector-client-distribution deployable package content,300,200]
+[link=../../resources/images/packagecontent_webapp.png,window=_tab]
+image:../../resources/images/packagecontent_webapp.png[connector-client-distribution deployable package content,300,200]
 
 === example-config folder
 This folder contains an example on how to configure the client-app-war in an Apache Tomcat. All files and folders contained are meant to be in the *conf* subfolder of the Tomcat:

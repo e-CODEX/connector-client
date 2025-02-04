@@ -10,7 +10,7 @@
     <artifactId>client-app-ui</artifactId>
     <packaging>war</packaging>
     <description>
-        This is the module that holds the user interface for the domibusConnectorClient-Application.
+        This is the module that holds the user interface for the e-CODEX Connector Client Application.
         Only reduced documentation included in this site.
         It is planned to develop an online help for user support.
     </description>
@@ -125,6 +125,13 @@
                 <configuration>
                     <skip>true</skip>
                     <skipDeploy>true</skipDeploy>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
             <plugin>

@@ -1,11 +1,12 @@
+
 == The connector-client as an e-CODEX building block
 
 The connector-client is a possibility for e-CODEX participants to support the connection to the backend of the ecodex-connector. The architecture of the e-CODEX building blocks shows where the connector-client is placed:
 
 Diagram: e-CODEX_building_blocks-overview
 [#img-e-CODEX_building_blocks-overview]
-[link=images/e-CODEX_building_blocks-overview.png,window=_tab]
-image::images/e-CODEX_building_blocks-overview.png[e-CODEX_building_blocks-overview,300,200]
+[link=../../resources/images/e-CODEX_building_blocks-overview.png,window=_tab]
+image::../../resources/images/e-CODEX_building_blocks-overview.png[e-CODEX_building_blocks-overview,300,200]
 
 == Architecture Overview
 
@@ -13,8 +14,8 @@ Here, in short, an overall architectural overview of how the connector-client is
 
 Diagram: connector-client-overview
 [#img-domibusConnectorClientOverview]
-[link=images/domibusConnectorClient-overview.png,window=_tab]
-image::images/domibusConnectorClient-overview.png[connector-client-overview,300,200]
+[link=../../resources/images/domibusConnectorClient-overview.png,window=_tab]
+image::../../resources/images/domibusConnectorClient-overview.png[connector-client-overview,300,200]
 
 
 == Distribution packages

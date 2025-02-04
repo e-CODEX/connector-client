@@ -19,6 +19,7 @@
         <module>client-libs-library</module>
         <module>client-libs-scheduler</module>
         <module>client-libs-api</module>
+        <module>client-libs-distribution</module>
     </modules>
     <dependencies>
         <!--ecodex libs-->
@@ -60,6 +61,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>client-librairies-${project.version}</finalName>
         <pluginManagement>
             <plugins>
                 <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
@@ -109,12 +111,18 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>sources</goal>
+                            <goal>resolve-sources</goal>
                             <goal>resolve</goal>
                         </goals>
                         <configuration>
                             <classifier>javadoc</classifier>
-                            <includeGroupIds>eu.domibus.connector,eu.ecodex.connector,eu.ecodex.connector-client,eu.ecodex.utils</includeGroupIds>
+                            <includeGroupIds>
+                                eu.domibus.connector,
+                                eu.ecodex.connector,
+                                eu.ecodex.connector.client,
+                                eu.ecodex.connector-client,
+                                eu.ecodex.utils
+                            </includeGroupIds>
                         </configuration>
                     </execution>
                 </executions>
@@ -134,6 +142,8 @@
                             <dependencySourceIncludes>
                                 <dependencySourceInclude>eu.ecodex.utils:*</dependencySourceInclude>
                                 <dependencySourceInclude>eu.ecodex.connector:*</dependencySourceInclude>
+                                <dependencySourceInclude>eu.ecodex.connector.client:*</dependencySourceInclude>
+                                <dependencySourceInclude>eu.ecodex.connector-client:*</dependencySourceInclude>
                                 <dependencySourceInclude>eu.domibus.connector:*</dependencySourceInclude>
                             </dependencySourceIncludes>
                             <dependencySourceExcludes>
@@ -144,30 +154,11 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>create-libs-distribution-package</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <appendAssemblyId>false</appendAssemblyId>
-                            <descriptors>
-                                <descriptor>src/main/assembly/assembleClientLibrariesPackage.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>generate-pdf-docs</id>
+                        <id>generate-libs-pdf-docs</id>
                         <phase>generate-resources</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
@@ -216,9 +207,9 @@
                 <configuration>
                     <additionalDependencies>
                         <additionalDependency>
-                            <groupId>javax.interceptor</groupId>
-                            <artifactId>javax.interceptor-api</artifactId>
-                            <version>1.2.2</version>
+                            <groupId>jakarta.interceptor</groupId>
+                            <artifactId>jakarta.interceptor-api</artifactId>
+                            <version>2.2.0</version>
                         </additionalDependency>
                     </additionalDependencies>
                     <includeDependencySources>true</includeDependencySources>
