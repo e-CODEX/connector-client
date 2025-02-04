@@ -2,10 +2,10 @@
 
 After download and extraction of the "connector-client-distribution.zip" file the extracted folder has the following content:
 
-Diagram: connector-client package content
+Diagram : connector-client package content
 [#img-connector-client-distribution-standalone-content]
-[link=../images/packagecontent_standalone.png,window=_tab]
-image::../images/packagecontent_standalone.png[connector-client-distribution standalone content,300,200]
+[link=../../resources/images/packagecontent_standalone.png,window=_tab]
+image:../../resources/images/packagecontent_standalone.png[connector-client-distribution standalone content,300,200]
 
 === standalone scripts
 Scripts for launching the standalone application are located in the *standalone* folder after extraction:

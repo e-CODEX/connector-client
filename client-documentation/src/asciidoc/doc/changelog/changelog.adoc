@@ -1,6 +1,11 @@
+:path: ../../
+
+ifndef::basepath[]
+:basepath: ../..
+endif::basepath[]
 
 ifndef::header[]
-include::../doc/header.adoc[]
+include::{basepath}/header.adoc[]
 endif::header[]
 
 //disable section numbers in changelog
@@ -8,8 +13,8 @@ endif::header[]
 
 == Changelog
 
-include::../doc/changelog/changelog-6.0.x.adoc[]
-include::../doc/changelog/changelog-4.4.x.adoc[]
+include::{basepath}/changelog/changelog-6.0.x.adoc[]
+include::{basepath}/changelog/changelog-4.4.x.adoc[]
 
 
 

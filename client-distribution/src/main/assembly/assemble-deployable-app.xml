@@ -1,17 +1,17 @@
 <assembly>
-    <id>webapp</id>
+    <id>deployable</id>
     <formats>
         <format>zip</format>
-         <format>dir</format>
+        <format>dir</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
+        <!-- ==================== Copying file structure ================= -->
         <fileSet>
             <directory>${project.basedir}/src/main/resources/war/</directory>
             <outputDirectory>deployable</outputDirectory>
         </fileSet>
     </fileSets>
-
     <dependencySets>
         <dependencySet>
             <outputDirectory>deployable/webapp</outputDirectory>

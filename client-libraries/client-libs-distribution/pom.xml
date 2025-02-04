@@ -5,34 +5,42 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>eu.ecodex.connector-client</groupId>
-        <artifactId>connector-client</artifactId>
+        <artifactId>client-libraries</artifactId>
         <version>6.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>client-distribution</artifactId>
+    <artifactId>client-libs-distribution</artifactId>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>client-app-starter</artifactId>
+            <groupId>eu.ecodex.connector-client</groupId>
+            <artifactId>client-libs-ws-link</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>client-app-war</artifactId>
+            <groupId>eu.ecodex.connector-client</groupId>
+            <artifactId>client-libs-api</artifactId>
             <version>${project.version}</version>
-            <type>war</type>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>client-documentation</artifactId>
+            <groupId>eu.ecodex.connector-client</groupId>
+            <artifactId>client-libs-scheduler</artifactId>
             <version>${project.version}</version>
-            <type>zip</type>
-            <classifier>documentation</classifier>
+        </dependency>
+        <dependency>
+            <groupId>eu.ecodex.connector-client</groupId>
+            <artifactId>client-libs-library</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
     <build>
-        <finalName>connector-client-distribution</finalName>
+        <finalName>client-librairies-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -47,9 +55,7 @@
                         <configuration>
                             <appendAssemblyId>false</appendAssemblyId>
                             <descriptors>
-                                <descriptor>src/main/assembly/assemble-standalone-app.xml</descriptor>
-                                <descriptor>src/main/assembly/assemble-deployable-app.xml</descriptor>
-                                <descriptor>src/main/assembly/assemble-documentation.xml</descriptor>
+                                <descriptor>src/main/assembly/assemble-client-libraries-package.xml</descriptor>
                             </descriptors>
                         </configuration>
                     </execution>
@@ -58,6 +64,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
                 <configuration>
                     <skip>true</skip>
                 </configuration>

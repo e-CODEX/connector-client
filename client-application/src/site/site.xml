@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="domibusConnectorClient-Application">
+<project name="client-application">
 
-	<skin>
-		<groupId>org.apache.maven.skins</groupId>
-		<artifactId>maven-fluido-skin</artifactId>
-		<version>1.8</version>
-	</skin>
-	<custom>
-		<fluidoSkin>
-			<topBarEnabled>true</topBarEnabled>
-			<sideBarEnabled>false</sideBarEnabled>
-		</fluidoSkin>
-	</custom>
+    <skin>
+        <groupId>org.apache.maven.skins</groupId>
+        <artifactId>maven-fluido-skin</artifactId>
+        <version>1.8</version>
+    </skin>
+    <custom>
+        <fluidoSkin>
+            <topBarEnabled>true</topBarEnabled>
+            <sideBarEnabled>false</sideBarEnabled>
+        </fluidoSkin>
+    </custom>
 
-	<bannerLeft>
-		<name>e-Codex</name>
-		<src>images/domibusConnectorClient-Logo.png</src>
-		<width>203px</width>
-		<height>117px</height>
-		<href>https://www.e-codex.eu/tech</href>
-	</bannerLeft>
+    <bannerLeft>
+        <name>e-Codex</name>
+        <src>images/domibusConnectorClient-Logo.png</src>
+        <width>120px</width>
+        <height>120px</height>
+        <href>https://www.ecodex.eu/tech</href>
+    </bannerLeft>
 
-	<bannerRight>
-		<src>images/europa-logo.jpg</src>
-		<width>150px</width>
-		<height>150px</height>
-	</bannerRight>
+    <bannerRight>
+        <src>images/europa-logo.jpg</src>
+        <width>100px</width>
+        <height>100px</height>
+    </bannerRight>
 
-	<body>
+    <body>
 
-		<menu name="Architecture">
-			<item name="Architecture of ${project.name}" href="architecture.html" />
-		</menu>
-		<menu name="Javadoc">
-			<item name="Aggregated apidocs of ${project.name}" href="apidocs/index.html" />
-		</menu>
-		<menu name="Configuration">
-			<item name="Guide to configure the application" href="config_guide.html" />
-			<item name="Certificates/Keys Required" href="certs_keys.html" />
-			<item name="iSupport specific configuration" href="isupport_config_guide.html" />
-		</menu>
-		<menu name="domibusConnectorClientApplication-Standalone">
-			<item name="Package description" href="standalone/packagecontent.html" />
-			<item name="Installation guide" href="standalone/install_guide.html" />
-		</menu>
-		<menu name="domibusConnectorClientApplication-Webapp">
-			<item name="Package description" href="webapp/packagecontent.html" />
-		</menu>
-		
+        <menu name="Architecture">
+            <item name="Architecture of ${project.name}" href="architecture.html"/>
+        </menu>
+        <menu name="Javadoc">
+            <item name="Aggregated apidocs of ${project.name}" href="apidocs/index.html"/>
+        </menu>
+        <menu name="Configuration">
+            <item name="Guide to configure the application" href="config_guide.html"/>
+            <item name="Certificates/Keys Required" href="certs_keys.html"/>
+            <item name="iSupport specific configuration" href="isupport_config_guide.html"/>
+        </menu>
+        <menu name="client-application-standalone">
+            <item name="Package description" href="standalone/packagecontent.html"/>
+            <item name="Installation guide" href="standalone/install_guide.html"/>
+        </menu>
+        <menu name="client-application-webapp">
+            <item name="Package description" href="webapp/packagecontent.html"/>
+        </menu>
 
-		<footer />
+        <footer/>
 
-	</body>
+    </body>
 </project>

@@ -1,15 +1,17 @@
+:imagesdir: ../resources/images/
+
 The libraries distributed here are for further developments within a custom application.
 They are NOT designed to run independently, but only to support implementers of a custom backend application to manage the message structure of the domibusConnectorAPI and to connect to the ecodex-connector to submit or receive messages.
 
 
-image:images/domibusConnectorClient-Libraries_deployment.png[placement of the libraries of the connector-client]
+image:domibusConnectorClient-Libraries_deployment.png[placement of the libraries of the connector-client]
 
 == Architecture Overview
 
 Diagram: client-libraries overview
 [#img-client-libraries]
-[link=images/domibusConnectorClient-Libraries-overview.png,window=_tab]
-image::images/domibusConnectorClient-Libraries-overview.png[client-libraries,300,200]
+[link=../resources/images/domibusConnectorClient-Libraries-overview.png,window=_tab]
+image:domibusConnectorClient-Libraries-overview.png[client-libraries,300,200]
 
 
 Libraries included in the package:
@@ -34,8 +36,8 @@ This overview picture above as well as all architecture images only contain the 
 
 Diagram: client-libs-ws-link
 [#img-client-libs-ws-link]
-[link=images/domibusConnectorClientWSLink.png,window=_tab]
-image::images/domibusConnectorClientWSLink.png[client-libs-ws-link,300,200]
+[link=../resources/images/domibusConnectorClientWSLink.png,window=_tab]
+image:domibusConnectorClientWSLink.png[client-libs-ws-link,300,200]
 
 ==== Description
 This library controls the communication between the client and the ecodex-connector.
@@ -57,8 +59,8 @@ The properties required, their description and default values (if implemented) f
 
 Diagram: client-libraries
 [#img-client-libs-library]
-[link=images/domibusConnectorClientLibrary.png,window=_tab]
-image::images/domibusConnectorClientLibrary.png[client-libs-library,300,200]
+[link=../resources/images/domibusConnectorClientLibrary.png,window=_tab]
+image:domibusConnectorClientLibrary.png[client-libs-library,300,200]
 
 ==== Description
 The client-libraries is the main library of the package.
@@ -82,8 +84,8 @@ To use this library, also the *client-libs-ws-link* needs to be on the classpath
 
 Diagram: client-lib-scheduler
 [#img-client-libs-scheduler]
-[link=images/domibusConnectorClientScheduler.png,window=_tab]
-image::images/domibusConnectorClientScheduler.png[client-libs-scheduler,300,200]
+[link=../resources/images/domibusConnectorClientScheduler.png,window=_tab]
+image:domibusConnectorClientScheduler.png[client-libs-scheduler,300,200]
 
 ==== Description
 This library is an extension to the client-libraries.
