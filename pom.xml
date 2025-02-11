@@ -100,7 +100,7 @@
         <maven.war-plugin.version>3.4.0</maven.war-plugin.version>
         <!--others plugins-->
         <asciidoctor.plugin.version>3.1.1</asciidoctor.plugin.version>
-        <depgraph.plugin.version>3.1.0</depgraph.plugin.version>
+        <depgraph.plugin.version>4.0.3</depgraph.plugin.version>
         <lifecycle-mapping.plugin.version>1.0.0</lifecycle-mapping.plugin.version>
         <cyclonedx.plugin.version>2.8.1</cyclonedx.plugin.version>
         <jacoco.version>0.8.12</jacoco.version>
