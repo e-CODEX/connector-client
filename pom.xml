@@ -135,7 +135,7 @@
         <h2.database.version>1.4.200</h2.database.version>
         <lombok.version>1.18.34</lombok.version>
         <objenesis.version>3.4</objenesis.version>
-        <okio.version>3.9.1</okio.version>
+        <okio.version>3.10.2</okio.version>
         <spring.boot.version>3.3.8</spring.boot.version>
         <swagger.version>2.7.0</swagger.version>
         <vaadin.version>24.6.4</vaadin.version>
