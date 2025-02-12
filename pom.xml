@@ -138,7 +138,7 @@
         <okio.version>3.9.1</okio.version>
         <spring.boot.version>3.3.8</spring.boot.version>
         <swagger.version>2.7.0</swagger.version>
-        <vaadin.version>24.6.4</vaadin.version>
+        <vaadin.version>24.6.5</vaadin.version>
         <vaadin.flow-server.version>24.6.5</vaadin.flow-server.version>
     </properties>
     <dependencyManagement>
