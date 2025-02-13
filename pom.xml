@@ -131,7 +131,7 @@
         <asciidoctor.diagram.version>2.3.1</asciidoctor.diagram.version>
         <asciidoctor.diagram-plantuml.version>1.2024.5</asciidoctor.diagram-plantuml.version>
         <ecodex.connector.version>6.0.0-SNAPSHOT</ecodex.connector.version>
-        <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
+        <hibernate.validator.version>8.0.2.Final</hibernate.validator.version>
         <h2.database.version>1.4.200</h2.database.version>
         <lombok.version>1.18.34</lombok.version>
         <objenesis.version>3.4</objenesis.version>
