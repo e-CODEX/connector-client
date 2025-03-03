@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>eu.ecodex.connector-client</groupId>
     <artifactId>connector-client</artifactId>
-    <version>6.0.0-SNAPSHOT</version>
+    <version>6.0.0</version>
     <packaging>pom</packaging>
     <name>connector-client</name>
     <description>Project for developing the client for the e-CODEX Connector web app.</description>
@@ -106,7 +106,7 @@
         <jacoco.version>0.8.12</jacoco.version>
         <!--dependencies-->
         <!--ecodex-->
-        <ecodex.utils.version>6.0.0-SNAPSHOT</ecodex.utils.version>
+        <ecodex.utils.version>6.0.0</ecodex.utils.version>
         <!--apache-->
         <apache.commons-io.version>2.18.0</apache.commons-io.version>
         <apache.commons-lang.version>2.6</apache.commons-lang.version>
@@ -130,7 +130,7 @@
         <asciidoctor.pdf.version>2.3.19</asciidoctor.pdf.version>
         <asciidoctor.diagram.version>2.3.1</asciidoctor.diagram.version>
         <asciidoctor.diagram-plantuml.version>1.2024.5</asciidoctor.diagram-plantuml.version>
-        <ecodex.connector.version>6.0.0-SNAPSHOT</ecodex.connector.version>
+        <ecodex.connector.version>6.0.0</ecodex.connector.version>
         <hibernate.validator.version>8.0.2.Final</hibernate.validator.version>
         <h2.database.version>1.4.200</h2.database.version>
         <lombok.version>1.18.36</lombok.version>
