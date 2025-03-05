@@ -5,7 +5,7 @@
     <parent>
         <groupId>eu.ecodex.connector-client</groupId>
         <artifactId>client-application</artifactId>
-        <version>6.0.1</version>
+        <version>6.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>client-app-fs-storage</artifactId>
     <dependencies>
