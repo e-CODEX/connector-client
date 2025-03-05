@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>eu.ecodex.connector-client</groupId>
     <artifactId>connector-client</artifactId>
-    <version>6.0.0</version>
+    <version>6.0.1</version>
     <packaging>pom</packaging>
     <name>connector-client</name>
     <description>Project for developing the client for the e-CODEX Connector web app.</description>

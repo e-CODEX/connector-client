@@ -1,12 +1,17 @@
 <assembly>
-    <id>standalone</id>
+    <id>documentation</id>
     <formats>
         <format>zip</format>
         <format>dir</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
-        <!-- ==================== Copying file structure ================= -->
+        <!-- deployable -->
+        <fileSet>
+            <directory>${project.basedir}/src/main/resources/war/</directory>
+            <outputDirectory>deployable</outputDirectory>
+        </fileSet>
+        <!--  standalone  -->
         <fileSet>
             <directory>${project.basedir}/src/main/resources/standalone/config</directory>
             <outputDirectory>standalone/config</outputDirectory>
@@ -51,9 +56,25 @@
             <directory>${project.basedir}/../client-documentation/target/src/main/resources/standalone/config</directory>
             <outputDirectory>standalone/config</outputDirectory>
         </fileSet>
-
     </fileSets>
     <dependencySets>
+        <!--documentation-->
+        <dependencySet>
+            <outputDirectory></outputDirectory>
+            <unpack>true</unpack>
+            <includes>
+                <include>${project.groupId}:client-documentation:zip:documentation:${project.version}</include>
+            </includes>
+        </dependencySet>
+        <!-- deployable -->
+        <dependencySet>
+            <outputDirectory>deployable/webapp</outputDirectory>
+            <unpack>false</unpack>
+            <includes>
+                <include>${project.groupId}:client-app-war:war:${project.version}</include>
+            </includes>
+        </dependencySet>
+        <!--  standalone  -->
         <dependencySet>
             <outputDirectory>standalone/bin</outputDirectory>
             <outputFileNameMapping>client-starter.jar</outputFileNameMapping>

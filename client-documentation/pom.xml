@@ -5,7 +5,7 @@
     <parent>
         <groupId>eu.ecodex.connector-client</groupId>
         <artifactId>connector-client</artifactId>
-        <version>6.0.0</version>
+        <version>6.0.1</version>
     </parent>
     <artifactId>client-documentation</artifactId>
     <packaging>pom</packaging>
