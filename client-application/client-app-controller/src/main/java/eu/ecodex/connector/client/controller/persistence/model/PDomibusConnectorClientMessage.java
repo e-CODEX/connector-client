@@ -27,7 +27,6 @@ import jakarta.persistence.TemporalType;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
@@ -37,7 +36,7 @@ import lombok.NoArgsConstructor;
  * @see PDomibusConnectorClientMessageStatus
  * @see PDomibusConnectorClientConfirmation
  */
-@Data
+// @Data
 @Entity
 @Table(name = "CONNECTOR_CLIENT_MESSAGE")
 @NoArgsConstructor
@@ -92,4 +91,175 @@ public class PDomibusConnectorClientMessage {
     private PDomibusConnectorClientMessageStatus messageStatus;
     @OneToMany(mappedBy = "message", fetch = FetchType.EAGER)
     private Set<PDomibusConnectorClientConfirmation> confirmations = new HashSet<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEbmsMessageId() {
+        return ebmsMessageId;
+    }
+
+    public void setEbmsMessageId(String ebmsMessageId) {
+        this.ebmsMessageId = ebmsMessageId;
+    }
+
+    public String getBackendMessageId() {
+        return backendMessageId;
+    }
+
+    public void setBackendMessageId(String backendMessageId) {
+        this.backendMessageId = backendMessageId;
+    }
+
+    public String getConversationId() {
+        return conversationId;
+    }
+
+    public void setConversationId(String conversationId) {
+        this.conversationId = conversationId;
+    }
+
+    public String getOriginalSender() {
+        return originalSender;
+    }
+
+    public void setOriginalSender(String originalSender) {
+        this.originalSender = originalSender;
+    }
+
+    public String getFinalRecipient() {
+        return finalRecipient;
+    }
+
+    public void setFinalRecipient(String finalRecipient) {
+        this.finalRecipient = finalRecipient;
+    }
+
+    public String getFromPartyId() {
+        return fromPartyId;
+    }
+
+    public void setFromPartyId(String fromPartyId) {
+        this.fromPartyId = fromPartyId;
+    }
+
+    public String getFromPartyType() {
+        return fromPartyType;
+    }
+
+    public void setFromPartyType(String fromPartyType) {
+        this.fromPartyType = fromPartyType;
+    }
+
+    public String getFromPartyRole() {
+        return fromPartyRole;
+    }
+
+    public void setFromPartyRole(String fromPartyRole) {
+        this.fromPartyRole = fromPartyRole;
+    }
+
+    public String getToPartyId() {
+        return toPartyId;
+    }
+
+    public void setToPartyId(String toPartyId) {
+        this.toPartyId = toPartyId;
+    }
+
+    public String getToPartyType() {
+        return toPartyType;
+    }
+
+    public void setToPartyType(String toPartyType) {
+        this.toPartyType = toPartyType;
+    }
+
+    public String getToPartyRole() {
+        return toPartyRole;
+    }
+
+    public void setToPartyRole(String toPartyRole) {
+        this.toPartyRole = toPartyRole;
+    }
+
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public DomibusConnectorClientStorageStatus getStorageStatus() {
+        return storageStatus;
+    }
+
+    public void setStorageStatus(
+        DomibusConnectorClientStorageStatus storageStatus) {
+        this.storageStatus = storageStatus;
+    }
+
+    public String getStorageInfo() {
+        return storageInfo;
+    }
+
+    public void setStorageInfo(String storageInfo) {
+        this.storageInfo = storageInfo;
+    }
+
+    public String getLastConfirmationReceived() {
+        return lastConfirmationReceived;
+    }
+
+    public void setLastConfirmationReceived(String lastConfirmationReceived) {
+        this.lastConfirmationReceived = lastConfirmationReceived;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public PDomibusConnectorClientMessageStatus getMessageStatus() {
+        return messageStatus;
+    }
+
+    public void setMessageStatus(
+        PDomibusConnectorClientMessageStatus messageStatus) {
+        this.messageStatus = messageStatus;
+    }
+
+    public Set<PDomibusConnectorClientConfirmation> getConfirmations() {
+        return confirmations;
+    }
+
+    public void setConfirmations(
+        Set<PDomibusConnectorClientConfirmation> confirmations) {
+        this.confirmations = confirmations;
+    }
 }

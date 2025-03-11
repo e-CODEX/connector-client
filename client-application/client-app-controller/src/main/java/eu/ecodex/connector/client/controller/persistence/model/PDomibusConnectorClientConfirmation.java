@@ -22,14 +22,13 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.util.Date;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  * This class represents a confirmation received by the connector client from a
  * PDomibusConnectorClientMessage.
  */
-@Data
+// @Data
 @Entity
 @Table(name = "CONNECTOR_CLIENT_CONFIRMATION")
 @NoArgsConstructor
@@ -50,4 +49,37 @@ public class PDomibusConnectorClientConfirmation {
     @Column(name = "RECEIVED", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date received;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public PDomibusConnectorClientMessage getMessage() {
+        return message;
+    }
+
+    public void setMessage(
+        PDomibusConnectorClientMessage message) {
+        this.message = message;
+    }
+
+    public String getConfirmationType() {
+        return confirmationType;
+    }
+
+    public void setConfirmationType(String confirmationType) {
+        this.confirmationType = confirmationType;
+    }
+
+    public Date getReceived() {
+        return received;
+    }
+
+    public void setReceived(Date received) {
+        this.received = received;
+    }
 }
