@@ -10,7 +10,7 @@
 
         <!-- ==================== domibusConnectorAPI ================= -->
         <fileSet>
-            <directory>${project.basedir}/client-libs-api/target/lib/</directory>
+            <directory>${project.basedir}/../client-libs-api/target/lib/</directory>
             <outputDirectory>client-libraries/domibusConnectorAPI</outputDirectory>
             <includes>
                 <include>domibusConnectorAPI*.jar</include>
