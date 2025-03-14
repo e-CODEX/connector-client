@@ -60,7 +60,7 @@
     <dependencySets>
         <!--documentation-->
         <dependencySet>
-            <outputDirectory></outputDirectory>
+            <outputDirectory>documentation</outputDirectory>
             <unpack>true</unpack>
             <includes>
                 <include>${project.groupId}:client-documentation:zip:documentation:${project.version}</include>
@@ -77,17 +77,10 @@
         <!--  standalone  -->
         <dependencySet>
             <outputDirectory>standalone/bin</outputDirectory>
-            <outputFileNameMapping>client-starter.jar</outputFileNameMapping>
+            <outputFileNameMapping>client-app-starter.jar</outputFileNameMapping>
             <unpack>false</unpack>
             <includes>
                 <include>${project.groupId}:client-app-starter:jar:${project.version}</include>
-            </includes>
-        </dependencySet>
-        <dependencySet>
-            <outputDirectory></outputDirectory>
-            <unpack>true</unpack>
-            <includes>
-                <include>${project.groupId}:client-documentation:zip:documentation:${project.version}</include>
             </includes>
         </dependencySet>
     </dependencySets>
