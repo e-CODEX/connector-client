@@ -2,8 +2,11 @@
 == Changelog for ecodex-connector-client-6.0.x
 
 === 6.0.1
-
-* fix package distribution
+==== Fixes
+* global package distribution
+* libraries package distribution
+* images path in architecture documentation
+* circular dependency between PDomibusConnectorClientConfirmation and PDomibusConnectorClientMessage models
 
 === 6.0.0
 
