@@ -11,12 +11,15 @@
 package eu.ecodex.connector.client.controller.configuration;
 
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * This class represents the default confirmation action settings for a Domibus connector client.
  */
 @Data
+@ConfigurationProperties(prefix = DomibusConnectorClientControllerConfig.PREFIX + "." + DefaultConfirmationAction.PREFIX )
 public class DefaultConfirmationAction {
+    public static final String PREFIX = "default-confirmation-action";
     private String submissionAcceptanceRejection;
     private String relayREMMDAcceptanceRejection;
     private String deliveryNonDeliveryToRecipient;
