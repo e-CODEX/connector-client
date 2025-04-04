@@ -1,3 +1,8 @@
+:basepath: ..
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
 
 == Changelog for ecodex-connector-client-6.0.x
 

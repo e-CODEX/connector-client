@@ -1,4 +1,8 @@
-:imagesdir: ../resources/images/
+:basepath: .
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
 
 == Certificates, Keys and Keystores required
 This guide explains the certificates and keys required for the client-application to communicate with the ecodex-connector.
@@ -9,8 +13,8 @@ This guide will *NOT* cover how keypairs and stores are created. Please refer to
 
 Diagram: client-application required keys
 [#img-client-application-required-keys]
-[link=../resources/images/domibusConnectorClient_keys_stores.png,window=_tab]
-image:domibusConnectorClient_keys_stores.png[client-application required keys,300,200]
+[link={basepath}/resources/images/domibusConnectorClient_keys_stores.png,window=_tab]
+image:domibusConnectorClient_keys_stores.png[client-application required keys]
 
 
 === Required keypairs

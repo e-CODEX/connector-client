@@ -1,0 +1,16 @@
+ifndef::basepath[]
+:basepath: .
+endif::basepath[]
+
+ifndef::imagesdir[]
+:imagesdir: {basepath}/../resources/images
+endif::imagesdir[]
+
+ifndef::header[]
+//TODO: insert html header with navigation here..
+:header: header
+:toc: left
+:toc-title: Table of Content
+:toclevels: 4
+:sectnums:
+endif::header[]

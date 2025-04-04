@@ -1,4 +1,10 @@
-== Installation guilde for the connector-client standalone application
+:basepath: ..
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
+
+== Installation guide for the connector-client standalone application
 
 After downloading and extracting the connector-client-distribution.zip, the structure given is explained at the
 link:packagecontent.html[packagecontent] site.

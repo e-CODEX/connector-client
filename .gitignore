@@ -129,7 +129,7 @@ client-libs-ws-link/src/main/java/eu/domibus/connector/ws/backend/webservice/
 connector-client/client-libs-scheduler/*.classpath
 connector-client/client-application/app-starter/messages
 connector-client/client-application/app-starter/database
-connector-client/client-librairies/client-libs-scheduler/.project
+connector-client/client-libraries/client-libs-scheduler/.project
 connector-client/client-application/client-app-ui/*.log
 client-application/**/src/main/frontend/
 client-application/**/src/main/bundles/
