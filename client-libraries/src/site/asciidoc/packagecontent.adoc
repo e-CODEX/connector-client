@@ -1,12 +1,17 @@
+:basepath: .
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
+
 == Content of the client-libraries package
-:imagesdir: ../resources/images/
 
 After download and extraction of the "client-libraries.zip" file the extracted folder has the following content:
 
 Diagram: client-libraries package content
 [#img-client-libraries-package-content]
 [link=../resources/images/connectorClientPackageContent.png,window=_tab]
-image:connectorClientPackageContent.png[client-libraries-package-content,300,200]
+image:connectorClientPackageContent.png[client-libraries-package-content]
 
 === site documentation
 Since this site is shown, the site documentation is already opened. It is the web-based documentation of the documentation for the libraries contained.

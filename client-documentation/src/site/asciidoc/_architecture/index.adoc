@@ -1,0 +1,9 @@
+:basepath: ..
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
+
+= Connector client architecture
+
+include::{basepath}/_architecture/architecture.adoc[]

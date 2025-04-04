@@ -1,3 +1,9 @@
+:basepath: .
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
+
 == Configuration guide for the connector-client
 
 This page describes what properties must/can be set for the client-application.

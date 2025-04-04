@@ -1,11 +1,15 @@
-:imagesdir: ../resources/images/
+:basepath: .
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
 
 == Architecture Overview
 
 Diagram: ecodex-connector-client-application overview
 [#img-client-application]
-[link=../resources/images/domibusConnectorClientApplication.png,window=_tab]
-image:domibusConnectorClientApplication.png[client-application,300,200]
+[link={basepath}/resources/images/domibusConnectorClientApplication.png,window=_tab]
+image:domibusConnectorClientApplication.png[client-application]
 
 
 The client-application consists of the following modules:
@@ -31,8 +35,8 @@ This overview picture above as well as all architecture images only contain the 
 
 Diagram: client-app-controller
 [#img-client-app-controller]
-[link=../resources/images/domibusConnectorClientController.png,window=_tab]
-image:domibusConnectorClientController.png[client-app-controller,300,200]
+[link={basepath}/resources/images/domibusConnectorClientController.png,window=_tab]
+image:domibusConnectorClientController.png[client-app-controller,600]
 
 ==== Description
 The controller is the module that knows all the other modules. The main features of the controller are:
@@ -50,8 +54,8 @@ The controller is the module that knows all the other modules. The main features
 
 Diagram: client-app-fs-storage
 [#img-client-app-fs-storage]
-[link=../resources/images/domibusConnectorClientFSStorage.png,window=_tab]
-image:domibusConnectorClientFSStorage.png[client-app-fs-storage,300,200]
+[link={basepath}/resources/images/domibusConnectorClientFSStorage.png,window=_tab]
+image:domibusConnectorClientFSStorage.png[client-app-fs-storage]
 
 ==== Description
 This standard storage module provided by the client-application stores and reads messages and their files from a filesystem. To be able to do so, the module has many default injected properties that can be overridden in the property configuration.
@@ -60,8 +64,8 @@ This standard storage module provided by the client-application stores and reads
 
 Diagram: client-app-rest-api
 [#img-client-app-rest-api]
-[link=../resources/images/domibusConnectorClientRestAPI.png,window=_tab]
-image:domibusConnectorClientRestAPI.png[client-app-rest-api,300,200]
+[link={basepath}/resources/images/domibusConnectorClientRestAPI.png,window=_tab]
+image:domibusConnectorClientRestAPI.png[client-app-rest-api]
 
 ==== Description
 * *DomibusConnectorClientRestAPI* 
@@ -77,8 +81,8 @@ image:domibusConnectorClientRestAPI.png[client-app-rest-api,300,200]
 
 Diagram: client-app-starter
 [#img-client-app-starter]
-[link=../resources/images/domibusConnectorClientStarter.png,window=_tab]
-image:domibusConnectorClientStarter.png[client-app-starter,300,200]
+[link={basepath}/resources/images/domibusConnectorClientStarter.png,window=_tab]
+image:domibusConnectorClientStarter.png[client-app-starter]
 
 ==== Description
 The client-app-starter is just a module to start the spring boot application context and set the properties file.

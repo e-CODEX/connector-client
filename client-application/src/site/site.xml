@@ -15,7 +15,7 @@
 
     <bannerLeft>
         <name>e-Codex</name>
-        <src>images/domibusConnectorClient-Logo.png</src>
+        <src>images/logo_ecodex_0.png</src>
         <width>120px</width>
         <height>120px</height>
         <href>https://www.ecodex.eu/tech</href>
@@ -23,32 +23,30 @@
 
     <bannerRight>
         <src>images/europa-logo.jpg</src>
-        <width>100px</width>
-        <height>100px</height>
+        <width>70px</width>
+        <height>50px</height>
     </bannerRight>
 
     <body>
-
         <menu name="Architecture">
             <item name="Architecture of ${project.name}" href="architecture.html"/>
-        </menu>
-        <menu name="Javadoc">
-            <item name="Aggregated apidocs of ${project.name}" href="apidocs/index.html"/>
         </menu>
         <menu name="Configuration">
             <item name="Guide to configure the application" href="config_guide.html"/>
             <item name="Certificates/Keys Required" href="certs_keys.html"/>
             <item name="iSupport specific configuration" href="isupport_config_guide.html"/>
         </menu>
-        <menu name="client-application-standalone">
+        <menu name="Standalone application">
             <item name="Package description" href="standalone/packagecontent.html"/>
             <item name="Installation guide" href="standalone/install_guide.html"/>
         </menu>
-        <menu name="client-application-webapp">
+        <menu name="Deployable application">
             <item name="Package description" href="webapp/packagecontent.html"/>
+        </menu>
+        <menu name="Javadoc">
+            <item name="Aggregated apidocs of ${project.name}" href="apidocs/index.html"/>
         </menu>
 
         <footer/>
-
     </body>
 </project>

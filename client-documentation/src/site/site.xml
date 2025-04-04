@@ -22,8 +22,8 @@
 
     <bannerRight>
         <src>images/europa-logo.jpg</src>
-        <width>100px</width>
-        <height>100px</height>
+        <width>70px</width>
+        <height>50px</height>
     </bannerRight>
 
     <body>
@@ -35,13 +35,17 @@
             <item name="connector-client" href="./index.html"/>
         </breadcrumbs>
 
+        <menu name="Changelog">
+            <item name="Changelog of the connector client" href="changelog.html"/>
+        </menu>
+
         <menu name="Architecture">
-            <item name="Architecture of ${project.name}" href="architecture.html"/>
+            <item name="Architecture of the connector client" href="architecture.html"/>
         </menu>
 
         <menu name="Distributions">
-            <item name="client-application" href="client-application/index.html"/>
-            <item name="client-libraries" href="client-libraries/index.html"/>
+            <item name="Documentation of the client application" href="client-application/index.html"/>
+            <item name="Documentation of the client libraries" href="client-libraries/index.html"/>
         </menu>
 
         <footer/>

@@ -1,0 +1,12 @@
+:basepath: .
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
+
+:doctype: book
+:title: e-CODEX connector client changelog
+:title-logo-image: {basepath}/../resources/images/logo_ecodex.png
+:!sectnums:
+
+include::{basepath}/_changelog/index.adoc[]

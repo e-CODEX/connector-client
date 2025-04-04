@@ -92,7 +92,7 @@
         <maven.enforcer-plugin.version>3.5.0</maven.enforcer-plugin.version>
         <maven.failsafe-plugin.version>3.5.2</maven.failsafe-plugin.version>
         <maven.javadoc-plugin.version>3.11.2</maven.javadoc-plugin.version>
-        <maven.project-info-reports-plugin.version>3.8.0</maven.project-info-reports-plugin.version>
+        <maven.project-info-reports-plugin.version>3.9.0</maven.project-info-reports-plugin.version>
         <maven.resources-plugin.version>3.3.1</maven.resources-plugin.version>
         <maven.site-plugin.version>3.12.0</maven.site-plugin.version>
         <maven.source-plugin.version>3.3.1</maven.source-plugin.version>
@@ -105,6 +105,7 @@
         <cyclonedx.plugin.version>2.9.1</cyclonedx.plugin.version>
         <jacoco.version>0.8.12</jacoco.version>
         <!--dependencies-->
+        <asciidoctorj.version>3.0.0</asciidoctorj.version>
         <!--ecodex-->
         <ecodex.utils.version>6.0.0</ecodex.utils.version>
         <!--apache-->
@@ -346,17 +347,19 @@
                     <dependencies>
                         <dependency>
                             <groupId>org.asciidoctor</groupId>
-                            <artifactId>asciidoctor-maven-plugin</artifactId>
-                            <version>${asciidoctor.plugin.version}</version>
+                            <artifactId>asciidoctorj</artifactId>
+                            <version>${asciidoctorj.version}</version>
                         </dependency>
                     </dependencies>
                     <configuration>
-                        <!-- disable generateReports if you don't want to include the built-in reports -->
                         <generateReports>true</generateReports>
                         <generateSitemap>true</generateSitemap>
                         <inputEncoding>UTF-8</inputEncoding>
                         <outputEncoding>UTF-8</outputEncoding>
                         <locales>en</locales>
+                        <moduleExcludes>
+                            <asciidoc>**/_*.adoc,**/_*/</asciidoc>
+                        </moduleExcludes>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -402,6 +405,13 @@
                             <project-version>${project.version}</project-version>
                             <source-highlighter>rouge</source-highlighter>
                             <rouge-style>github</rouge-style>
+                            <toc>left</toc>
+                            <data-uri>true</data-uri>
+                            <allow-uri-read>true</allow-uri-read>
+                            <icons>font</icons>
+                            <skipFiles>**/_*.adoc</skipFiles>
+                            <imagesdir>${basedir}/src/site/resources/images</imagesdir>
+                            <basepath>${basedir}/src/site/asciidoc</basepath>
                         </attributes>
                     </configuration>
                 </plugin>
@@ -498,40 +508,6 @@
                         <goals>
                             <goal>site</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.asciidoctor</groupId>
-                <artifactId>asciidoctor-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>generate-base-pdfs</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>process-asciidoc</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirectory>${project.basedir}/src/site/asciidoc</sourceDirectory>
-                            <outputDirectory>target/documentation-pdf</outputDirectory>
-                            <backend>pdf</backend>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>generate-base-html-docs</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>process-asciidoc</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirectory>src/site/asciidoc</sourceDirectory>
-                            <outputDirectory>target/site</outputDirectory>
-                            <backend>html5</backend>
-                            <preserveDirectories>true</preserveDirectories>
-                            <attributes>
-                                <basepath>src/site/asciidoc/</basepath>
-                            </attributes>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

@@ -17,24 +17,32 @@
                 <artifactId>asciidoctor-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>generate-changelog-pdfs</id>
+                        <id>generate-pdf-documentation</id>
                         <phase>generate-resources</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
                         </goals>
                         <configuration>
-                            <sourceDirectory>src/asciidoc/doc</sourceDirectory>
-                            <outputDirectory>target/documentation-pdf/changelog</outputDirectory>
+                            <sourceDirectory>src/site/asciidoc</sourceDirectory>
+                            <outputDirectory>target/documentation-pdf</outputDirectory>
                             <backend>pdf</backend>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-html-documentation</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <sourceDirectory>src/site/asciidoc</sourceDirectory>
+                            <outputDirectory>target/site</outputDirectory>
+                            <backend>html5</backend>
                         </configuration>
                     </execution>
                 </executions>
                 <configuration>
-                    <attributes>
-                        <basepath>${project.basedir}/src/asciidoc/doc/</basepath>
-                        <icons>font</icons>
-                    </attributes>
-                    <preserveDirectories>true</preserveDirectories>
+                    <doctype>book</doctype>
                     <requires>
                         <require>asciidoctor-diagram</require>
                     </requires>
@@ -51,19 +59,13 @@
                             <goal>single</goal>
                         </goals>
                         <configuration>
+                            <appendAssemblyId>false</appendAssemblyId>
                             <descriptors>
                                 <descriptor>src/main/assembly/assembly-documentation.xml</descriptor>
                             </descriptors>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
             </plugin>
         </plugins>
     </build>

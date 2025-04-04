@@ -1,11 +1,19 @@
+:basepath: ..
+
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
+
+
 == Content of the deployable package
 
 After download and extraction of the "connector-client-distribution.zip" file the extracted folder has the following content:
 
 Diagram : connector-client-distribution deployable package content
 [#img-connector-client-distribution-deployable-content]
-[link=../../resources/images/packagecontent_webapp.png,window=_tab]
-image:../../resources/images/packagecontent_webapp.png[connector-client-distribution deployable package content,300,200]
+[link={basepath}/../resources/images/packagecontent_webapp.png,window=_tab]
+image:packagecontent_webapp.png[connector-client-distribution deployable package content]
 
 === example-config folder
 This folder contains an example on how to configure the client-app-war in an Apache Tomcat. All files and folders contained are meant to be in the *conf* subfolder of the Tomcat:

@@ -1,3 +1,9 @@
+:basepath: .
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
+
 == Configuration properties of the client-libraries
 
 If the libraries contributed in this package are integrated into an application, the following configuration properties need to be available within the application context.

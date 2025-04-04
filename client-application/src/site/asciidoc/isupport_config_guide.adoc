@@ -1,3 +1,9 @@
+:basepath: .
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
+
 == Additional configuration to run the client-application in iSupport mode
 
 iSupport has a special setup to interact between the iSupport backend application and e-CODEX.
