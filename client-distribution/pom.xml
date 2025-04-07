@@ -32,7 +32,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>client-distribution-${project.version}</finalName>
+        <finalName>connector-client-distribution</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
