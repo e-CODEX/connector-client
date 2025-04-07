@@ -14,6 +14,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
 import java.util.Properties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -74,18 +76,18 @@ public class DefaultMessageProperties {
      * @throws RuntimeException if an I/O error occurs while storing the properties.
      */
     public void storeMessagePropertiesToFile(File messagePropertiesFile) {
-        if (!messagePropertiesFile.exists()) {
-            try {
-                messagePropertiesFile.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            Files.createFile(messagePropertiesFile.toPath());
+        } catch (FileAlreadyExistsException fileAlreadyExistsException) {
+            //we are ignoring this one
+        } catch (IOException ioException) {
+            throw new RuntimeException("Failed to create messagePropertiesFile", ioException);
         }
 
         try (var fos = new FileOutputStream(messagePropertiesFile)) {
             messageProperties.store(fos, null);
         } catch (IOException e1) {
-            throw new RuntimeException(e1);
+            throw new RuntimeException("Failed to write messagePropertiesFile",e1);
         }
     }
 }
