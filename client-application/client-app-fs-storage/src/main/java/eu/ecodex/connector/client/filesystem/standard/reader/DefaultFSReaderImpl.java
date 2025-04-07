@@ -33,14 +33,17 @@ import eu.ecodex.connector.domain.transition.tools.ConversionTools;
 import jakarta.activation.MimetypesFileTypeMap;
 import java.io.File;
 import java.io.IOException;
+import java.util.*;
+
+import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang.ArrayUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang3.ArrayUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
 /**
@@ -48,6 +51,7 @@ import org.springframework.util.StringUtils;
  * interface.
  */
 @SuppressWarnings("squid:S1135")
+@RequiredArgsConstructor
 public class DefaultFSReaderImpl extends AbstractDomibusConnectorClientFileSystemReaderImpl
     implements DomibusConnectorClientFileSystemReader {
     private static final Logger LOGGER = LoggerFactory.getLogger(DefaultFSReaderImpl.class);
@@ -57,13 +61,13 @@ public class DefaultFSReaderImpl extends AbstractDomibusConnectorClientFileSyste
         "Found content pdf file with name {}";
     public static final String FOUND_DETACHED_SIGNATURE_FILE_WITH_NAME =
         "Found detached signature file with name {}";
-    @Autowired
-    private DomibusConnectorClientFSMessageProperties messageProperties;
-    @Autowired
-    private DomibusConnectorClientFSConfigurationProperties properties;
+
+    private final DomibusConnectorClientFSMessageProperties messageProperties;
+    private final DomibusConnectorClientFSConfigurationProperties properties;
 
     @Override
     public List<File> readUnsentMessages(File outgoingMessagesDir) {
+        Objects.requireNonNull(outgoingMessagesDir, "outgoingMessagesDir must not be null!");
         String messageReadyPostfix = properties.getMessageReadyPostfix();
         if (messageReadyPostfix == null) {
             messageReadyPostfix = "";
@@ -72,8 +76,9 @@ public class DefaultFSReaderImpl extends AbstractDomibusConnectorClientFileSyste
             "#readUnsentMessages: Searching for folders with ending {}", messageReadyPostfix);
         List<File> messagesUnsent = new ArrayList<>();
 
-        if (outgoingMessagesDir.listFiles().length > 0) {
-            for (var sub : outgoingMessagesDir.listFiles()) {
+        var outgoingMsgDirs = outgoingMessagesDir.listFiles();
+        if (outgoingMsgDirs != null) {
+            for (var sub : outgoingMsgDirs) {
                 if (sub.isDirectory()
                     && sub.getName().endsWith(messageReadyPostfix)) {
                     messagesUnsent.add(sub);
@@ -96,7 +101,7 @@ public class DefaultFSReaderImpl extends AbstractDomibusConnectorClientFileSyste
         Map<String, DomibusConnectorClientStorageFileType> files =
             new HashMap<>();
         if (messageFolder.exists() && messageFolder.isDirectory()
-            && messageFolder.listFiles().length > 0) {
+            && messageFolder.listFiles() != null) {
 
             var messageDetails =
                 new DefaultMessageProperties(messageFolder, this.messageProperties.getFileName());
