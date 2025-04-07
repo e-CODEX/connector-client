@@ -15,17 +15,15 @@ import eu.ecodex.connector.client.controller.persistence.dao.PackageDomibusConne
 import eu.ecodex.connector.client.controller.persistence.model.PDomibusConnectorClientPersistenceModel;
 import eu.ecodex.connector.client.controller.persistence.service.DomibusConnectorClientPersistenceService;
 import eu.ecodex.connector.client.storage.DomibusConnectorClientStorage;
-import jakarta.validation.constraints.NotNull;
 import javax.annotation.PostConstruct;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.NestedConfigurationProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -43,39 +41,58 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(basePackageClasses = {PackageDomibusConnectorClientRepositories.class})
 @NoArgsConstructor
 @EnableTransactionManagement
-@ConfigurationProperties(prefix = DomibusConnectorClientControllerConfig.PREFIX)
+@EnableConfigurationProperties({DefaultConfirmationAction.class})
 @PropertySource("classpath:/connector-client-controller-default.properties")
+@SuppressWarnings("squid:S1118")
 public class DomibusConnectorClientControllerConfig {
-    private static final Logger LOGGER =
-        LoggerFactory.getLogger(DomibusConnectorClientControllerConfig.class);
     public static final String PREFIX = "connector-client.controller";
     public static final String RESTORE_DATABASE_PROPERTY = "restore-database-from-storage";
-    @Autowired
-    private DomibusConnectorClientStorage storage;
-    @Autowired
-    private DomibusConnectorClientPersistenceService persistenceService;
-    @NestedConfigurationProperty
-    @NotNull
-    private DefaultConfirmationAction confirmationDefaultAction;
+    private static final Logger LOGGER =
+        LoggerFactory.getLogger(DomibusConnectorClientControllerConfig.class);
 
     /**
-     * This method restores the database from the storage.
+     * Configuration class responsible for restoring the database from storage.
+     * This configuration is activated conditionally based on a specific property.
      *
-     * <p>This method is only executed if the configuration property
-     * "connector-client.controller.restore-database-from-storage" is set to "true". It retrieves
-     * the necessary beans and dependencies from the configuration class
-     * DomibusConnectorClientControllerConfig.
+     * <p>The `RestoreDatabaseFromStorageConfiguration` class defines a bean to handle
+     * the restoration of database entities from a storage source when the required
+     * property is enabled. It utilizes the `DomibusConnectorClientPersistenceService`
+     * to perform database operations and the `DomibusConnectorClientStorage` to access
+     * stored data.
+     *
+     * <p>The restoration process is automatically triggered after the bean has been
+     * initialized, ensuring that necessary database restoration logic is executed
+     * during the application startup phase.
      */
-    @PostConstruct
     @ConditionalOnProperty(
         prefix = DomibusConnectorClientControllerConfig.PREFIX, value = RESTORE_DATABASE_PROPERTY,
         havingValue = "true"
     )
-    public void restoreDatabaseFromStorage() {
-        LOGGER.debug("#restoreDatabaseFromStorage: enter");
-        var restore = new DatabaseRestore();
-        restore.setPersistenceService(persistenceService);
-        restore.setStorage(storage);
-        restore.restoreDatabaseFromStorage();
+    @Configuration
+    public static class RestoreDatabaseFromStorageConfiguration {
+        /**
+         * Creates a bean responsible for restoring the database from a storage source.
+         * The restoration process is initiated automatically after the bean's initialization.
+         *
+         * @param persistenceService the service used to handle database operations required during
+         *                           the restoration process
+         * @param storage the storage service from which the data for restoration is retrieved
+         * @return an anonymous object containing the database restoration logic
+         */
+        @Bean
+        public Object restoreDatabaseFromStorageBean(
+                DomibusConnectorClientPersistenceService persistenceService,
+                DomibusConnectorClientStorage storage) {
+            return new Object() {
+                @PostConstruct
+                public void restoreDb() {
+                    LOGGER.debug("#restoreDatabaseFromStorage: enter");
+                    var restore = new DatabaseRestore();
+                    restore.setPersistenceService(persistenceService);
+                    restore.setStorage(storage);
+                    restore.restoreDatabaseFromStorage();
+                }
+            };
+        }
     }
 }
