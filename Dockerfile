@@ -4,28 +4,28 @@ WORKDIR /app
 COPY . .
 RUN mvn clean install -Pproduction -DskipTests
 
-# Prepare the image
-FROM eclipse-temurin:21
+# Runtime stage
+FROM eclipse-temurin:21-jre-jammy
 
 LABEL maintainer="e-codex@eulisa.europa.eu"
 LABEL description="e-CODEX connector"
 
 ARG USERNAME=connector-client
-ARG USER_GROUP=${USERNAME}
 ARG BASE_PATH=/app
 ARG BUILD_OUTPUT_FOLDER=/app/client-distribution/target/connector-client-distribution/standalone
 
 WORKDIR ${BASE_PATH}
 
-COPY --from=build ${BUILD_OUTPUT_FOLDER}/bin/ ${BASE_PATH}/bin/
-COPY --from=build ${BUILD_OUTPUT_FOLDER}/lib/ ${BASE_PATH}/lib/
-COPY --from=build ${BUILD_OUTPUT_FOLDER}/start.sh ${BASE_PATH}
-
-RUN groupadd --system ${USER_GROUP} \
-    && useradd  --system -s /usr/sbin/nologin -g ${USER_GROUP} ${USERNAME} \
+RUN groupadd --system ${USERNAME} \
+    && useradd  --system -s /usr/sbin/nologin -g ${USERNAME} ${USERNAME} \
     && mkdir -p database messages logs config \
-    && chown -R ${USERNAME}:${USER_GROUP} ${BASE_PATH} \
-    && chmod +x ${BASE_PATH}/start.sh
+    && chown -R ${USERNAME}:${USERNAME} ${BASE_PATH}
+
+COPY --from=build --chown=${USERNAME}:${USERNAME} ${BUILD_OUTPUT_FOLDER}/bin/ ${BASE_PATH}/bin/
+COPY --from=build --chown=${USERNAME}:${USERNAME} ${BUILD_OUTPUT_FOLDER}/lib/ ${BASE_PATH}/lib/
+COPY --from=build --chown=${USERNAME}:${USERNAME} ${BUILD_OUTPUT_FOLDER}/start.sh ${BASE_PATH}
+
+RUN chmod +x ${BASE_PATH}/start.sh
 
 USER ${USERNAME}
 
