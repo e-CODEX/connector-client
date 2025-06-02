@@ -11,21 +11,25 @@ LABEL maintainer="e-codex@eulisa.europa.eu"
 LABEL description="e-CODEX connector"
 
 ARG USERNAME=connector-client
-ARG BASE_PATH=/app
+ARG USER_UID=1000
+ARG USER_GID=${USER_UID}
+ARG APP_FOLDER=/app
 ARG BUILD_OUTPUT_FOLDER=/app/client-distribution/target/connector-client-distribution/standalone
 
-WORKDIR ${BASE_PATH}
+WORKDIR ${APP_FOLDER}
 
-RUN groupadd --system ${USERNAME} \
-    && useradd  --system -s /usr/sbin/nologin -g ${USERNAME} ${USERNAME} \
+RUN apt-get update -y \
+    && apt-get upgrade -y \
+    && groupadd -g ${USER_GID} ${USERNAME} \
+    && useradd -u ${USER_UID} -g ${USER_GID} -m ${USERNAME} \
     && mkdir -p database messages logs config \
-    && chown -R ${USERNAME}:${USERNAME} ${BASE_PATH}
+    && chown -R ${USERNAME}:${USERNAME} ${APP_FOLDER}
 
-COPY --from=build --chown=${USERNAME}:${USERNAME} ${BUILD_OUTPUT_FOLDER}/bin/ ${BASE_PATH}/bin/
-COPY --from=build --chown=${USERNAME}:${USERNAME} ${BUILD_OUTPUT_FOLDER}/lib/ ${BASE_PATH}/lib/
-COPY --from=build --chown=${USERNAME}:${USERNAME} ${BUILD_OUTPUT_FOLDER}/start.sh ${BASE_PATH}
+COPY --from=build --chown=${USERNAME}:${USERNAME} ${BUILD_OUTPUT_FOLDER}/bin/ ${APP_FOLDER}/bin/
+COPY --from=build --chown=${USERNAME}:${USERNAME} ${BUILD_OUTPUT_FOLDER}/lib/ ${APP_FOLDER}/lib/
+COPY --from=build --chown=${USERNAME}:${USERNAME} ${BUILD_OUTPUT_FOLDER}/start.sh ${APP_FOLDER}
 
-RUN chmod +x ${BASE_PATH}/start.sh
+RUN chmod +x ${APP_FOLDER}/start.sh
 
 USER ${USERNAME}
 
