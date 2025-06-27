@@ -159,7 +159,10 @@ The properties for the UI are only 2 to set:
 [source,properties]
 ----
 connector-client-rest-url=http://<url>:<port>/restservice
-spring.codec.max-in-memory-size=20MB
+# for versions below 6.0.2, use
+# spring.codec.max-in-memory-size=20MB
+# from version 6.0.2 onwards, use
+spring.http.codec.max-in-memory-size=20MB
 ----
 
 For the connector-client-rest-url the parts url and port must reference the client application self. In most cases this will be the standard value "localhost" and "8080". If the "server.port" of the connector-client application is set, this port then must be used.

@@ -6,6 +6,12 @@ endif::header[]
 
 == Changelog for ecodex-connector-client-6.0.x
 
+=== 6.0.2-SNAPSHOT
+==== Changes
+* Bump dependencies
+* Bump from spring boot 3.3.8 to 3.5.3
+* **spring.codec.max-in-memory-size** becomes **spring.http.codec.max-in-memory-size** after bumping to spring-boot 3.5.3
+
 === 6.0.1
 ==== Fixes
 * global package distribution

@@ -44,6 +44,10 @@ public class DomibusConnectorClientRestClientConfig {
 
     @Bean
     public WebClient webClient(WebClient.Builder builder) {
+        if (!this.enabled) {
+            return null;
+        }
+
         return builder.baseUrl(url).build();
     }
 
