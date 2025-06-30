@@ -11,14 +11,20 @@ The following section assumes that you are familiar with Docker and have it inst
 ```
 
 ### Already built image
-A built image of the connector is available here: [here](https://scm.ecodex.eu/docker/connector-client:latest).
+Built images of the connector client are available [here](https://scm.ecodex.eu/docker/connector-client:latest) for the latest final release and [here](https://scm.ecodex.eu/ecodex-docker-snapshots/connector-client:edge) for the latest snapshot.
 
 Pull the image by running:
 
+- for the latest release:
 ```shell
 docker pull https://scm.ecodex.eu/docker/connector-client:latest
 ```
 
+- for the latest snapshot:
+
+```shell
+docker pull https://scm.ecodex.eu/ecodex-docker-snapshots/connector-client:edge
+```
 ### Build your own image
 By default, there is a ```Dockerfile``` in the root of this project.
 
