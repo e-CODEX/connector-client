@@ -49,6 +49,10 @@
         </dependency>
         <!--vaadin-->
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.vaadin</groupId>
             <!-- replace artifactId with vaadin-core to use only free components -->
             <artifactId>vaadin-core</artifactId>
@@ -85,13 +89,6 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring-boot-starter</artifactId>
             <version>${vaadin.version}</version>
-            <!--  <exclusions>
-              Excluding so that webjars are not included.
-              <exclusion>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin-core</artifactId>
-              </exclusion>
-            </exclusions> -->
         </dependency>
         <!--other-->
         <dependency>
