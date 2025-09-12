@@ -89,9 +89,9 @@
         <maven.assembly-plugin.version>3.7.1</maven.assembly-plugin.version>
         <maven.compiler-plugin.version>3.14.0</maven.compiler-plugin.version>
         <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
-        <maven.enforcer-plugin.version>3.5.0</maven.enforcer-plugin.version>
+        <maven.enforcer-plugin.version>3.6.1</maven.enforcer-plugin.version>
         <maven.failsafe-plugin.version>3.5.3</maven.failsafe-plugin.version>
-        <maven.javadoc-plugin.version>3.11.2</maven.javadoc-plugin.version>
+        <maven.javadoc-plugin.version>3.11.3</maven.javadoc-plugin.version>
         <maven.project-info-reports-plugin.version>3.9.0</maven.project-info-reports-plugin.version>
         <maven.resources-plugin.version>3.3.1</maven.resources-plugin.version>
         <maven.site-plugin.version>3.12.0</maven.site-plugin.version>
@@ -108,7 +108,8 @@
         <!--ecodex-->
         <ecodex.utils.version>6.0.1</ecodex.utils.version>
         <!--apache-->
-        <apache.commons-io.version>2.19.0</apache.commons-io.version>
+        <apache.commons-io.version>2.20.0</apache.commons-io.version>
+        <apache.commons-lang3.version>3.18.0</apache.commons-lang3.version>
         <apache.commons-lang.version>2.6</apache.commons-lang.version>
         <apache.cxf.version>4.1.2</apache.cxf.version>
         <apache.log4j2.version>2.17.0</apache.log4j2.version>
@@ -135,6 +136,7 @@
         <h2.database.version>1.4.200</h2.database.version>
         <lombok.version>1.18.38</lombok.version>
         <objenesis.version>3.4</objenesis.version>
+        <netty-codec.version>4.2.6.Final</netty-codec.version>
         <okio.version>3.12.0</okio.version>
         <spring.boot.version>3.5.5</spring.boot.version>
         <swagger.version>2.7.0</swagger.version>
@@ -176,15 +178,14 @@
             </dependency>
             <!--apache common -->
             <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache.commons-lang3.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${apache.commons-io.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>${apache.commons-lang.version}</version>
-                <scope>compile</scope>
             </dependency>
             <!--jakarta-->
             <dependency>
@@ -267,6 +268,11 @@
                 <groupId>org.hibernate.validator</groupId>
                 <artifactId>hibernate-validator</artifactId>
                 <version>${hibernate.validator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-codec</artifactId>
+                <version>${netty-codec.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.squareup.okio</groupId>
