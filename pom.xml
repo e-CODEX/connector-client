@@ -129,7 +129,7 @@
         <javax.xml.ws.jaxws-api.version>2.3.1</javax.xml.ws.jaxws-api.version>
         <!--other-->
         <asciidoctor.pdf.version>2.3.19</asciidoctor.pdf.version>
-        <asciidoctor.diagram.version>2.3.1</asciidoctor.diagram.version>
+        <asciidoctor.diagram.version>3.0.1</asciidoctor.diagram.version>
         <asciidoctor.diagram-plantuml.version>1.2024.5</asciidoctor.diagram-plantuml.version>
         <ecodex.connector.version>6.1.0</ecodex.connector.version>
         <hibernate.validator.version>9.1.0.Final</hibernate.validator.version>
