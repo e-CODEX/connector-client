@@ -1,0 +1,13 @@
+:basepath: ..
+
+ifndef::header[]
+include::{basepath}/_header.adoc[]
+endif::header[]
+
+== Changelog for ecodex-connector-client-6.1.x
+
+=== 6.1.0
+==== Technical
+* Bump dependencies
+* Bump from spring boot 3.5.3 to 3.5.8
+

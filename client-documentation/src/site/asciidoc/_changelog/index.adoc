@@ -8,6 +8,8 @@ endif::header[]
 
 = Changelog
 
+include::{basepath}/_changelog/changelog-6.1.x.adoc[]
+
 include::{basepath}/_changelog/changelog-6.0.x.adoc[]
 
 include::{basepath}/_changelog/changelog-4.4.x.adoc[]
