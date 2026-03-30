@@ -14,6 +14,7 @@ import eu.ecodex.connector.client.filesystem.DomibusConnectorClientFSStorage;
 import eu.ecodex.connector.client.filesystem.DomibusConnectorClientFSStorageImpl;
 import eu.ecodex.connector.client.filesystem.DomibusConnectorClientFileSystemReader;
 import eu.ecodex.connector.client.filesystem.DomibusConnectorClientFileSystemWriter;
+import eu.ecodex.connector.client.filesystem.standard.DomibusConnectorClientFSMessageProperties;
 import eu.ecodex.connector.client.filesystem.standard.reader.DefaultFSReaderImpl;
 import eu.ecodex.connector.client.filesystem.standard.writer.DefaultFSWriterImpl;
 import eu.ecodex.connector.client.storage.DomibusConnectorClientStorage;
@@ -66,13 +67,17 @@ public class DomibusConnectorClientFSStorageConfiguration {
 
     @Bean
     @ConditionalOnMissingBean({DomibusConnectorClientFileSystemReader.class})
-    public DomibusConnectorClientFileSystemReader domibusConnectorClientFileSystemReader() {
-        return new DefaultFSReaderImpl();
+    public DomibusConnectorClientFileSystemReader domibusConnectorClientFileSystemReader(
+            DomibusConnectorClientFSMessageProperties messageProperties,
+            DomibusConnectorClientFSConfigurationProperties properties) {
+        return new DefaultFSReaderImpl(messageProperties, properties);
     }
 
     @Bean
     @ConditionalOnMissingBean({DomibusConnectorClientFileSystemWriter.class})
-    public DomibusConnectorClientFileSystemWriter domibusConnectorClientFileSystemWriter() {
-        return new DefaultFSWriterImpl();
+    public DomibusConnectorClientFileSystemWriter domibusConnectorClientFileSystemWriter(
+            DomibusConnectorClientFSMessageProperties messageProperties,
+            DomibusConnectorClientFSConfigurationProperties properties) {
+        return new DefaultFSWriterImpl(messageProperties, properties);
     }
 }

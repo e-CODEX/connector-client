@@ -25,6 +25,8 @@ import eu.ecodex.connector.domain.transition.DomibusConnectorMessageType;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,25 +36,17 @@ import org.springframework.util.StringUtils;
  * Represents an implementation of the {@link DomibusConnectorClientFileSystemWriter} interface.
  * This class is responsible for writing messages to the file system.
  */
+@RequiredArgsConstructor
 public class DefaultFSWriterImpl extends AbstractDomibusConnectorClientFileSystemWriterImpl
     implements DomibusConnectorClientFileSystemWriter {
     private static final Logger LOGGER = LoggerFactory.getLogger(DefaultFSWriterImpl.class);
-    @Autowired
-    private DomibusConnectorClientFSMessageProperties messageProperties;
-    @Autowired
-    private DomibusConnectorClientFSConfigurationProperties properties;
+
+    private final DomibusConnectorClientFSMessageProperties messageProperties;
+    private final DomibusConnectorClientFSConfigurationProperties properties;
 
     private void storeMessagePropertiesToFile(
         DefaultMessageProperties messageProperties,
         File messagePropertiesFile) {
-        if (!messagePropertiesFile.exists()) {
-            try {
-                messagePropertiesFile.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
         messageProperties.storeMessagePropertiesToFile(messagePropertiesFile);
     }
 
@@ -88,6 +82,8 @@ public class DefaultFSWriterImpl extends AbstractDomibusConnectorClientFileSyste
             msgProps = convertMessageDetailsToMessageProperties(
                 message
                     .getMessageDetails(), messageReceived);
+        } else {
+            throw new IllegalStateException("Cannot continue, because msgProps is null");
         }
 
         DomibusConnectorMessageContentType messageContent = message.getMessageContent();
@@ -157,42 +153,66 @@ public class DefaultFSWriterImpl extends AbstractDomibusConnectorClientFileSyste
             );
         }
         if (messageDetails.getToParty() != null) {
-            msgDetails.getMessageProperties().put(
-                messageProperties.getToPartyId(),
-                messageDetails.getToParty().getPartyId()
-            );
-            msgDetails.getMessageProperties().put(
-                messageProperties.getToPartyRole(),
-                messageDetails.getToParty().getRole()
-            );
+            if (messageDetails.getToParty().getPartyId() != null) {
+                msgDetails.getMessageProperties().put(
+                        messageProperties.getToPartyId(),
+                        messageDetails.getToParty().getPartyId()
+                );
+            } else {
+                throw new IllegalArgumentException("The partyId of ToParty is not allowed to be null!");
+            }
+            if (messageDetails.getToParty().getRole() != null) {
+                msgDetails.getMessageProperties().put(
+                        messageProperties.getToPartyRole(),
+                        messageDetails.getToParty().getRole()
+                );
+            }
         }
         if (messageDetails.getFromParty() != null) {
-            msgDetails.getMessageProperties().put(
-                messageProperties.getFromPartyId(),
-                messageDetails.getFromParty().getPartyId()
-            );
-            msgDetails.getMessageProperties().put(
-                messageProperties.getFromPartyRole(),
-                messageDetails.getFromParty().getRole()
-            );
+            if (messageDetails.getFromParty().getPartyId() != null) {
+                msgDetails.getMessageProperties().put(
+                        messageProperties.getFromPartyId(),
+                        messageDetails.getFromParty().getPartyId()
+                );
+            } else {
+                throw new IllegalArgumentException("The partyId of FromParty is not allowed to be null!");
+            }
+            if (messageDetails.getFromParty().getRole() != null) {
+                msgDetails.getMessageProperties().put(
+                        messageProperties.getFromPartyRole(),
+                        messageDetails.getFromParty().getRole()
+                );
+            }
+
         }
-        msgDetails.getMessageProperties()
-                  .put(messageProperties.getFinalRecipient(), messageDetails.getFinalRecipient());
-        msgDetails.getMessageProperties()
-                  .put(messageProperties.getOriginalSender(), messageDetails.getOriginalSender());
+        if (messageDetails.getFinalRecipient() != null) {
+            msgDetails.getMessageProperties()
+                    .put(messageProperties.getFinalRecipient(), messageDetails.getFinalRecipient());
+        }
+        if (messageDetails.getOriginalSender() != null) {
+            msgDetails.getMessageProperties()
+                    .put(messageProperties.getOriginalSender(), messageDetails.getOriginalSender());
+        }
+
         if (messageDetails.getAction() != null) {
             msgDetails.getMessageProperties()
                       .put(messageProperties.getAction(), messageDetails.getAction().getAction());
         }
         if (messageDetails.getService() != null) {
-            msgDetails.getMessageProperties().put(
-                messageProperties.getService(),
-                messageDetails.getService().getService()
-            );
-            msgDetails.getMessageProperties().put(
-                messageProperties.getServiceType(),
-                messageDetails.getService().getServiceType()
-            );
+            if (messageDetails.getService().getService() != null) {
+                msgDetails.getMessageProperties().put(
+                        messageProperties.getService(),
+                        messageDetails.getService().getService()
+                );
+            } else {
+                throw new IllegalArgumentException("The service of Service is not allowed to be null!");
+            }
+            if (messageDetails.getService().getServiceType() != null) {
+                msgDetails.getMessageProperties().put(
+                        messageProperties.getServiceType(),
+                        messageDetails.getService().getServiceType()
+                );
+            }
         }
         if (messageReceived != null) {
             msgDetails.getMessageProperties().put(
